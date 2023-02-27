@@ -21,7 +21,7 @@ function App() {
   }, [sidemenuVisible])
 
   return (
-    <div className="p-4">
+    <div className="min-h-screen p-4">
       <Nav toggleSidemenu={toggleSidemenu} />
       <AnimatePresence>
         {sidemenuVisible && <Sidemenu toggleSidemenu={toggleSidemenu} />}

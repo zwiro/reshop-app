@@ -3,6 +3,12 @@ import { AiOutlineCloseCircle } from "react-icons/ai"
 import { NavProps } from "./Nav"
 import { motion } from "framer-motion"
 import Logo from "./Logo"
+import {
+  AiFillFacebook,
+  AiFillTwitterCircle,
+  AiFillInstagram,
+} from "react-icons/ai"
+import { FaTiktok } from "react-icons/fa"
 
 export type CategoriesType = {
   name: string
@@ -31,6 +37,22 @@ function Sidemenu({ toggleSidemenu }: NavProps) {
       subcategories: ["Sneakers", "Boots", "Sandals", "Heels", "Flats"],
     },
     { name: "Accessories" },
+    { name: "All items" },
+  ]
+
+  const links = [
+    "About reshop",
+    "FAQ and Support",
+    "Contact",
+    "Terms of Service",
+    "Privacy Policy",
+  ]
+
+  const socials = [
+    { name: "Facebook", icon: <AiFillFacebook size={24} /> },
+    { name: "Twitter", icon: <AiFillTwitterCircle size={24} /> },
+    { name: "Instagram", icon: <AiFillInstagram size={24} /> },
+    { name: "TikTok", icon: <FaTiktok size={24} /> },
   ]
 
   const sidemenuAnimation = {
@@ -43,7 +65,7 @@ function Sidemenu({ toggleSidemenu }: NavProps) {
   return (
     <motion.aside
       {...sidemenuAnimation}
-      className="absolute top-0 left-0 h-full bg-slate-100 p-4"
+      className="absolute top-0 left-0 flex h-full flex-col bg-slate-100 p-4"
     >
       <div className="flex items-center gap-4">
         <Logo />
@@ -53,7 +75,6 @@ function Sidemenu({ toggleSidemenu }: NavProps) {
           size={32}
         />
       </div>
-      <h2 className="mt-4 text-2xl">Categories</h2>
       <ul>
         {categories.map((category, i) => (
           <Category
@@ -61,6 +82,18 @@ function Sidemenu({ toggleSidemenu }: NavProps) {
             name={category.name}
             subcategories={category.subcategories}
           />
+        ))}
+      </ul>
+      <ul className="mt-auto">
+        {links.map((link) => (
+          <li className="cursor-pointer text-sm hover:underline">{link}</li>
+        ))}
+      </ul>
+      <ul className="mt-4 flex gap-2">
+        {socials.map((social) => (
+          <li className="cursor-pointer transition-transform hover:scale-125">
+            {social.icon}
+          </li>
         ))}
       </ul>
     </motion.aside>
