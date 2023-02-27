@@ -21,7 +21,7 @@ function Category({ name, subcategories }: CategoriesType) {
       className="relative my-4 cursor-pointer"
     >
       <div className="flex items-center gap-2">
-        <span className="text-xl font-bold transition-colors hover:text-blue-700">
+        <span className="text-xl font-bold transition-colors hover:text-blue-700 sm:text-base">
           {name}
         </span>
         {subcategories && (
@@ -34,7 +34,7 @@ function Category({ name, subcategories }: CategoriesType) {
       </div>
       <AnimatePresence>
         {categoryExpanded && (
-          <ul className="sm:absolute sm:w-full sm:bg-zinc-700 sm:p-4 sm:text-base sm:text-slate-100 ">
+          <ul className="sm:absolute sm:w-full sm:bg-zinc-700 sm:p-2 sm:text-base sm:text-slate-100 ">
             {subcategories?.map((subcategory, i) => (
               <motion.li
                 {...subcategoriesAnimation}

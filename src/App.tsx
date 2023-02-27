@@ -7,7 +7,7 @@ import useMediaQuery from "./hooks/useMediaQuery"
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
-  const isDesktop = useMediaQuery("(min-width: 640px)")
+  const isDesktop = useMediaQuery("(min-width: 768px)")
 
   function toggleSidemenu(e: React.MouseEvent) {
     if (!isDesktop) {
@@ -27,7 +27,7 @@ function App() {
   }, [sidemenuVisible])
 
   return (
-    <div className="min-h-screen p-4">
+    <div className="min-h-screen p-4 sm:px-8 lg:px-24">
       <Nav toggleSidemenu={toggleSidemenu} />
       <AnimatePresence>
         {sidemenuVisible && !isDesktop && (

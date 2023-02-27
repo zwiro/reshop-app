@@ -3,6 +3,7 @@ import { AiOutlineMenu } from "react-icons/ai"
 import Searchbar from "./Searchbar"
 import Logo from "./Logo"
 import Category from "./Category"
+import useMediaQuery from "../hooks/useMediaQuery"
 
 export type NavProps = {
   toggleSidemenu: (e: React.MouseEvent) => void
@@ -37,23 +38,26 @@ export const categories: CategoriesType[] = [
 ]
 
 function Nav({ toggleSidemenu }: NavProps) {
+  const isDesktop = useMediaQuery("(min-width: 768px)")
   return (
     <nav className="flex items-center gap-4">
       <AiOutlineMenu
         onClick={(e) => toggleSidemenu(e)}
         size={30}
-        className="cursor-pointer transition-transform hover:rotate-180 sm:hidden"
+        className="cursor-pointer transition-transform hover:rotate-180 md:hidden"
       />
       <Logo />
-      <ul className="flex w-full justify-center gap-8">
-        {categories.map((category, i) => (
-          <Category
-            key={`${category}-${i}`}
-            name={category.name}
-            subcategories={category.subcategories}
-          />
-        ))}
-      </ul>
+      {isDesktop && (
+        <ul className="flex w-full justify-center gap-1 md:gap-4">
+          {categories.map((category, i) => (
+            <Category
+              key={`${category}-${i}`}
+              name={category.name}
+              subcategories={category.subcategories}
+            />
+          ))}
+        </ul>
+      )}
       <Searchbar />
       <BsCart
         size={24}

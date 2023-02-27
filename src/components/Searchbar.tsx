@@ -15,7 +15,7 @@ function Searchbar() {
 
   const inputAnimation = {
     initial: { width: 0 },
-    animate: { width: 200 },
+    animate: { width: 100 },
     exit: { width: 0, opacity: 0 },
     transition: { duration: 0.2 },
   }
