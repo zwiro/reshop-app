@@ -4,7 +4,7 @@ import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 
 function Searchbar() {
-  const [searchBarVisible, setSearchBarVisible] = useState(false)
+  const [searchBarVisible, setSearchBarVisible] = useState<Boolean>(false)
 
   const iconAnimation = {
     initial: { scale: 0, x: 20 },
@@ -29,7 +29,7 @@ function Searchbar() {
               {...inputAnimation}
               type="search"
               placeholder="Hoodie"
-              className="rounded bg-zinc-700 px-2 text-slate-300"
+              className="-z-10 rounded bg-zinc-700 px-2 text-slate-300"
             />
           </>
         )}
@@ -47,11 +47,14 @@ function Searchbar() {
             />
           </motion.div>
         ) : (
-          <motion.div key="close" {...iconAnimation}>
+          <motion.div
+            key="close"
+            {...iconAnimation}
+            onClick={() => setSearchBarVisible(false)}
+          >
             <AiOutlineCloseCircle
-              onClick={() => setSearchBarVisible(false)}
-              className="cursor-pointer transition-transform hover:scale-125"
               size={24}
+              className="cursor-pointer transition-transform hover:scale-125"
             />
           </motion.div>
         )}
