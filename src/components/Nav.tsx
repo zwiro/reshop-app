@@ -1,6 +1,7 @@
 import { BsCart } from "react-icons/bs"
 import { AiOutlineMenu } from "react-icons/ai"
 import Searchbar from "./Searchbar"
+import Logo from "./Logo"
 
 export type NavProps = {
   toggleSidemenu: (e: React.MouseEvent) => void
@@ -14,7 +15,7 @@ function Nav({ toggleSidemenu }: NavProps) {
         size={30}
         className="cursor-pointer transition-transform hover:rotate-180"
       />
-      <div className="text-2xl font-bold">reshop.</div>
+      <Logo />
       <Searchbar />
       <BsCart
         size={24}
