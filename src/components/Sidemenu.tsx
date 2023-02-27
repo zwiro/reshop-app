@@ -9,38 +9,12 @@ import {
   AiFillInstagram,
 } from "react-icons/ai"
 import { FaTiktok } from "react-icons/fa"
+import { categories } from "./Nav"
 
-export type CategoriesType = {
-  name: string
-  subcategories?: string[]
-}
+type SidemenuProps = NavProps
 
-function Sidemenu({ toggleSidemenu }: NavProps) {
-  const categories: CategoriesType[] = [
-    {
-      name: "Clothing",
-      subcategories: [
-        "T-Shirts",
-        "Dresses",
-        "Jeans",
-        "Jackets",
-        "Sweaters",
-        "Hoodies",
-        "Blazers",
-        "Skirts",
-        "Shorts",
-        "Coats",
-      ],
-    },
-    {
-      name: "Footwear",
-      subcategories: ["Sneakers", "Boots", "Sandals", "Heels", "Flats"],
-    },
-    { name: "Accessories" },
-    { name: "All items" },
-  ]
-
-  const links = [
+function Sidemenu({ toggleSidemenu }: SidemenuProps) {
+  const links: string[] = [
     "About reshop",
     "FAQ and Support",
     "Contact",

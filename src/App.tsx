@@ -3,20 +3,26 @@ import Sidemenu from "./components/Sidemenu"
 import data from "./shopData"
 import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
+import useMediaQuery from "./hooks/useMediaQuery"
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
+  const isDesktop = useMediaQuery("(min-width: 640px)")
 
   function toggleSidemenu(e: React.MouseEvent) {
-    e.stopPropagation()
-    setSidemenuVisible((prevState) => !prevState)
+    if (!isDesktop) {
+      e.stopPropagation()
+      setSidemenuVisible((prevState) => !prevState)
+    }
   }
 
   useEffect(() => {
-    if (sidemenuVisible) {
-      document.body.classList.add("bg-black/80")
-    } else {
-      document.body.classList.remove("bg-black/80")
+    if (!isDesktop) {
+      if (sidemenuVisible) {
+        document.body.classList.add("bg-black/80")
+      } else {
+        document.body.classList.remove("bg-black/80")
+      }
     }
   }, [sidemenuVisible])
 
@@ -24,7 +30,9 @@ function App() {
     <div className="min-h-screen p-4">
       <Nav toggleSidemenu={toggleSidemenu} />
       <AnimatePresence>
-        {sidemenuVisible && <Sidemenu toggleSidemenu={toggleSidemenu} />}
+        {sidemenuVisible && !isDesktop && (
+          <Sidemenu toggleSidemenu={toggleSidemenu} />
+        )}
       </AnimatePresence>
     </div>
   )
