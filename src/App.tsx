@@ -1,9 +1,10 @@
+import Nav from "./components/Nav"
 import data from "./shopData"
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className="m-4">
+      <Nav />
     </div>
   )
 }
