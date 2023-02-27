@@ -1,3 +1,5 @@
+import data from "./shopData"
+
 function App() {
   return (
     <div className="App">
