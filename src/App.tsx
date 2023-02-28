@@ -4,6 +4,7 @@ import data from "./shopData"
 import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import useMediaQuery from "./hooks/useMediaQuery"
+import Footer from "./components/Footer"
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
@@ -34,6 +35,7 @@ function App() {
           <Sidemenu toggleSidemenu={toggleSidemenu} />
         )}
       </AnimatePresence>
+      {isDesktop && <Footer />}
     </div>
   )
 }

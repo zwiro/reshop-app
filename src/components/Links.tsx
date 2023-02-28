@@ -1,4 +1,8 @@
-function Links() {
+type LinksProps = {
+  isFooter: Boolean
+}
+
+function Links({ isFooter }: LinksProps) {
   const links: string[] = [
     "About reshop",
     "FAQ and Support",
@@ -7,7 +11,7 @@ function Links() {
     "Privacy Policy",
   ]
   return (
-    <ul className="mt-auto">
+    <ul className={`${isFooter ? "flex gap-8 lg:gap-16" : "mt-auto"} `}>
       {links.map((link) => (
         <li className="cursor-pointer text-sm hover:underline">{link}</li>
       ))}
