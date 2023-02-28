@@ -20,8 +20,8 @@ function Category({ name, subcategories }: CategoriesType) {
       }
       className="relative my-4 cursor-pointer"
     >
-      <div className="flex items-center gap-2">
-        <span className="text-xl font-bold transition-colors hover:text-blue-700 sm:text-base">
+      <div className="flex items-center gap-0">
+        <span className="text-xl font-bold transition-colors hover:text-blue-700 sm:text-base lg:text-lg xl:text-xl">
           {name}
         </span>
         {subcategories && (
@@ -34,20 +34,22 @@ function Category({ name, subcategories }: CategoriesType) {
       </div>
       <AnimatePresence>
         {categoryExpanded && (
-          <ul className="sm:absolute sm:w-full sm:bg-zinc-700 sm:p-2 sm:text-base sm:text-slate-100 ">
+          <motion.ul
+            {...subcategoriesAnimation}
+            className="sm:absolute sm:w-full sm:bg-zinc-700 sm:p-2 sm:text-base sm:text-slate-100 "
+          >
             {subcategories?.map((subcategory, i) => (
-              <motion.li
-                {...subcategoriesAnimation}
+              <li
                 key={`${subcategory}-${i}`}
                 className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0"
               >
                 {subcategory}
-              </motion.li>
+              </li>
             ))}
             <li className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0">
               See all items
             </li>
-          </ul>
+          </motion.ul>
         )}
       </AnimatePresence>
     </li>

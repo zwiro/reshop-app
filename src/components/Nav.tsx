@@ -58,11 +58,13 @@ function Nav({ toggleSidemenu }: NavProps) {
           ))}
         </ul>
       )}
-      <Searchbar />
-      <BsCart
-        size={24}
-        className="cursor-pointer transition-transform hover:scale-125"
-      />
+      <div className="ml-auto flex gap-2">
+        <Searchbar />
+        <BsCart
+          size={24}
+          className="cursor-pointer transition-transform hover:scale-125"
+        />
+      </div>
     </nav>
   )
 }

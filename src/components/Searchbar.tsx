@@ -15,23 +15,21 @@ function Searchbar() {
 
   const inputAnimation = {
     initial: { width: 0 },
-    animate: { width: 100 },
+    animate: { width: 150 },
     exit: { width: 0, opacity: 0 },
     transition: { duration: 0.2 },
   }
 
   return (
-    <div className="ml-auto flex items-center gap-2">
+    <div className="flex items-center justify-end gap-2">
       <AnimatePresence>
         {searchBarVisible && (
-          <>
-            <motion.input
-              {...inputAnimation}
-              type="search"
-              placeholder="Hoodie"
-              className="-z-10 rounded bg-zinc-700 px-2 text-slate-300"
-            />
-          </>
+          <motion.input
+            {...inputAnimation}
+            type="search"
+            placeholder="Hoodie"
+            className="rounded bg-zinc-700 px-2 text-slate-300"
+          />
         )}
       </AnimatePresence>
       <AnimatePresence mode="wait">
