@@ -4,7 +4,7 @@ import Statistic from "./Statistic"
 
 function Statistics() {
   return (
-    <div className="mt-4 mb-24">
+    <div className="mt-4 md:mb-24">
       <Statistic image={home1}>
         <p>50 000+ satisfied customers.</p>
         <p>250 000+ sold items.</p>
