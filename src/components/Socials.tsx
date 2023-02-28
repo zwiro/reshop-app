@@ -14,8 +14,11 @@ function Socials() {
   ]
   return (
     <ul className="mt-4 flex gap-2">
-      {socials.map((social) => (
-        <li className="cursor-pointer transition-transform hover:scale-125">
+      {socials.map((social, i) => (
+        <li
+          key={`${social}-${i}`}
+          className="cursor-pointer transition-transform hover:scale-125"
+        >
           {social.icon}
         </li>
       ))}

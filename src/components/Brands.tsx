@@ -24,8 +24,13 @@ function Brands() {
     <div className="mt-4 bg-zinc-700 p-4 text-center text-slate-100">
       <h2 className="tracking-wider">Our brands</h2>
       <div className="flex flex-wrap justify-center gap-8 py-4 xl:gap-16">
-        {logos.map((logo) => (
-          <div className="transition-transform hover:scale-125">{logo}</div>
+        {logos.map((logo, i) => (
+          <div
+            key={`${logo}-${i}`}
+            className="transition-transform hover:scale-125"
+          >
+            {logo}
+          </div>
         ))}
       </div>
     </div>

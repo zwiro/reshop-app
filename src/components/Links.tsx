@@ -12,8 +12,13 @@ function Links({ isFooter }: LinksProps) {
   ]
   return (
     <ul className={`${isFooter && "flex gap-8 lg:gap-16"} `}>
-      {links.map((link) => (
-        <li className="cursor-pointer text-sm hover:underline">{link}</li>
+      {links.map((link, i) => (
+        <li
+          key={`${link}-${i}`}
+          className="cursor-pointer text-sm hover:underline"
+        >
+          {link}
+        </li>
       ))}
     </ul>
   )
