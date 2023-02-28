@@ -20,27 +20,31 @@ function Sidemenu({ toggleSidemenu }: SidemenuProps) {
   return (
     <motion.aside
       {...sidemenuAnimation}
-      className="absolute top-0 left-0 flex h-full flex-col bg-slate-100 p-4"
+      className="absolute top-0 bottom-0 left-0 z-[1000] flex w-1/3 flex-col bg-slate-100 p-4"
     >
-      <div className="flex items-center gap-4">
-        <Logo />
-        <AiOutlineCloseCircle
-          onClick={(e) => toggleSidemenu(e)}
-          className="ml-auto cursor-pointer transition-transform hover:scale-125"
-          size={32}
-        />
-      </div>
-      <ul>
-        {categories.map((category, i) => (
-          <Category
-            key={`${category}-${i}`}
-            name={category.name}
-            subcategories={category.subcategories}
+      <div className="fixed top-4">
+        <div className="flex items-center gap-4">
+          <Logo />
+          <AiOutlineCloseCircle
+            onClick={(e) => toggleSidemenu(e)}
+            className="ml-auto cursor-pointer transition-transform hover:scale-125"
+            size={32}
           />
-        ))}
-      </ul>
-      <Links />
-      <Socials />
+        </div>
+        <ul>
+          {categories.map((category, i) => (
+            <Category
+              key={`${category}-${i}`}
+              name={category.name}
+              subcategories={category.subcategories}
+            />
+          ))}
+        </ul>
+      </div>
+      <div className="fixed bottom-4">
+        <Links />
+        <Socials />
+      </div>
     </motion.aside>
   )
 }

@@ -29,7 +29,7 @@ function App() {
   }, [sidemenuVisible])
 
   return (
-    <div className="min-h-screen p-4 sm:px-8 lg:px-24">
+    <div className="relative min-h-screen p-4 sm:px-8 lg:px-24">
       <Nav toggleSidemenu={toggleSidemenu} />
       <AnimatePresence>
         {sidemenuVisible && !isDesktop && (

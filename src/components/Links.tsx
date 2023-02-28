@@ -1,5 +1,5 @@
 type LinksProps = {
-  isFooter: Boolean
+  isFooter?: Boolean
 }
 
 function Links({ isFooter }: LinksProps) {
@@ -11,7 +11,7 @@ function Links({ isFooter }: LinksProps) {
     "Privacy Policy",
   ]
   return (
-    <ul className={`${isFooter ? "flex gap-8 lg:gap-16" : "mt-auto"} `}>
+    <ul className={`${isFooter && "flex gap-8 lg:gap-16"} `}>
       {links.map((link) => (
         <li className="cursor-pointer text-sm hover:underline">{link}</li>
       ))}
