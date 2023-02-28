@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Brands from "../components/Brands"
 import BrowseItems from "../components/BrowseItems"
+import Statistics from "../components/Statistics"
 
 function HomePage() {
   return (
@@ -8,6 +9,7 @@ function HomePage() {
       <Header />
       <Brands />
       <BrowseItems />
+      <Statistics />
     </>
   )
 }
