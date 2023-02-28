@@ -3,32 +3,13 @@ import { AiOutlineCloseCircle } from "react-icons/ai"
 import { NavProps } from "./Nav"
 import { motion } from "framer-motion"
 import Logo from "./Logo"
-import {
-  AiFillFacebook,
-  AiFillTwitterCircle,
-  AiFillInstagram,
-} from "react-icons/ai"
-import { FaTiktok } from "react-icons/fa"
 import { categories } from "./Nav"
+import Socials from "./Socials"
+import Links from "./Links"
 
 type SidemenuProps = NavProps
 
 function Sidemenu({ toggleSidemenu }: SidemenuProps) {
-  const links: string[] = [
-    "About reshop",
-    "FAQ and Support",
-    "Contact",
-    "Terms of Service",
-    "Privacy Policy",
-  ]
-
-  const socials = [
-    { name: "Facebook", icon: <AiFillFacebook size={24} /> },
-    { name: "Twitter", icon: <AiFillTwitterCircle size={24} /> },
-    { name: "Instagram", icon: <AiFillInstagram size={24} /> },
-    { name: "TikTok", icon: <FaTiktok size={24} /> },
-  ]
-
   const sidemenuAnimation = {
     initial: { x: -300 },
     animate: { x: 0 },
@@ -58,18 +39,8 @@ function Sidemenu({ toggleSidemenu }: SidemenuProps) {
           />
         ))}
       </ul>
-      <ul className="mt-auto">
-        {links.map((link) => (
-          <li className="cursor-pointer text-sm hover:underline">{link}</li>
-        ))}
-      </ul>
-      <ul className="mt-4 flex gap-2">
-        {socials.map((social) => (
-          <li className="cursor-pointer transition-transform hover:scale-125">
-            {social.icon}
-          </li>
-        ))}
-      </ul>
+      <Links />
+      <Socials />
     </motion.aside>
   )
 }
