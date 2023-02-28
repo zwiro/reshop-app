@@ -40,7 +40,7 @@ export const categories: CategoriesType[] = [
 function Nav({ toggleSidemenu }: NavProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)")
   return (
-    <nav className="flex items-center gap-4">
+    <nav className="sticky top-0 flex items-center gap-4">
       <AiOutlineMenu
         onClick={(e) => toggleSidemenu(e)}
         size={30}
