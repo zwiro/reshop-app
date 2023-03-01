@@ -46,7 +46,8 @@ import brownBelt from "./assets/brown-belt.jpg"
 import goldSunglasses from "./assets/gold-sunglasses.jpg"
 import silverSunglasses from "./assets/silver-sunglasses.jpg"
 
-type DataTypes = {
+export type DataTypes = {
+  id: number
   product: string
   name: string
   sizes: string[]
@@ -58,6 +59,7 @@ type DataTypes = {
 
 const data: DataTypes[] = [
   {
+    id: 1,
     product: "t-shirt",
     name: "Plain T-shirt",
     sizes: ["S", "M", "XL"],
@@ -68,6 +70,7 @@ const data: DataTypes[] = [
     price: 23,
   },
   {
+    id: 2,
     product: "hoodie",
     name: "Hoodie with graphic",
     sizes: ["XS", "M", "L", "XL", "XXL"],
@@ -78,6 +81,7 @@ const data: DataTypes[] = [
     price: 48,
   },
   {
+    id: 3,
     product: "jumper",
     name: "Warm jumper",
     sizes: ["M", "L", "XXL"],
@@ -88,6 +92,7 @@ const data: DataTypes[] = [
     price: 43,
   },
   {
+    id: 4,
     product: "jacket",
     name: "Quilted Jacket",
     sizes: ["S", "M", "L", "XL"],
@@ -98,6 +103,7 @@ const data: DataTypes[] = [
     price: 75,
   },
   {
+    id: 5,
     product: "dress",
     name: "Floral Print Dress",
     sizes: ["XS", "S", "M", "L"],
@@ -108,6 +114,7 @@ const data: DataTypes[] = [
     price: 55,
   },
   {
+    id: 6,
     product: "jeans",
     name: "High-Waisted Skinny Jeans",
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -118,6 +125,7 @@ const data: DataTypes[] = [
     price: 65,
   },
   {
+    id: 7,
     product: "sweater",
     name: "Cable-Knit Sweater",
     sizes: ["S", "M", "L"],
@@ -128,6 +136,7 @@ const data: DataTypes[] = [
     price: 50,
   },
   {
+    id: 8,
     product: "blazer",
     name: "Structured Blazer",
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -138,6 +147,7 @@ const data: DataTypes[] = [
     price: 95,
   },
   {
+    id: 9,
     product: "t-shirt",
     name: "Graphic Print T-Shirt",
     sizes: ["M", "L", "XL"],
@@ -148,6 +158,7 @@ const data: DataTypes[] = [
     price: 25,
   },
   {
+    id: 10,
     product: "skirt",
     name: "Pleated Midi Skirt",
     sizes: ["S", "M", "L"],
@@ -158,6 +169,7 @@ const data: DataTypes[] = [
     price: 60,
   },
   {
+    id: 11,
     product: "shorts",
     name: "Denim Shorts",
     sizes: ["XS", "S", "M", "L"],
@@ -168,6 +180,7 @@ const data: DataTypes[] = [
     price: 40,
   },
   {
+    id: 12,
     product: "coat",
     name: "Wool Blend Coat",
     sizes: ["S", "M", "L", "XL"],
@@ -178,6 +191,7 @@ const data: DataTypes[] = [
     price: 120,
   },
   {
+    id: 13,
     product: "sneakers",
     name: "Low-Top Sneakers",
     sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
@@ -188,6 +202,7 @@ const data: DataTypes[] = [
     price: 50,
   },
   {
+    id: 14,
     product: "boots",
     name: "Leather Chelsea Boots",
     sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
@@ -198,6 +213,7 @@ const data: DataTypes[] = [
     price: 120,
   },
   {
+    id: 15,
     product: "flats",
     name: "Ballet Flats",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -208,6 +224,7 @@ const data: DataTypes[] = [
     price: 60,
   },
   {
+    id: 16,
     product: "sandals",
     name: "Strappy Sandals",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -218,6 +235,7 @@ const data: DataTypes[] = [
     price: 35,
   },
   {
+    id: 17,
     product: "heels",
     name: "Classic Stiletto Heels",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -228,6 +246,7 @@ const data: DataTypes[] = [
     price: 74,
   },
   {
+    id: 18,
     product: "scarf",
     name: "Cashmere Scarf",
     sizes: ["One Size"],
@@ -238,6 +257,7 @@ const data: DataTypes[] = [
     price: 90,
   },
   {
+    id: 19,
     product: "hat",
     name: "Fedora Hat",
     sizes: ["S/M", "L/XL"],
@@ -248,6 +268,7 @@ const data: DataTypes[] = [
     price: 65,
   },
   {
+    id: 20,
     product: "watch",
     name: "Leather Strap Watch",
     sizes: ["One Size"],
@@ -258,6 +279,7 @@ const data: DataTypes[] = [
     price: 120,
   },
   {
+    id: 21,
     product: "belt",
     name: "Leather Belt",
     sizes: ["S", "M", "L", "XL"],
@@ -268,6 +290,7 @@ const data: DataTypes[] = [
     price: 45,
   },
   {
+    id: 22,
     product: "sunglasses",
     name: "Aviator Sunglasses",
     sizes: ["One Size"],
