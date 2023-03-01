@@ -18,15 +18,15 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    if (!isDesktop) {
-      if (sidemenuVisible) {
-        document.body.classList.add("bg-black/80")
-      } else {
-        document.body.classList.remove("bg-black/80")
-      }
-    }
-  }, [sidemenuVisible])
+  // useEffect(() => {
+  //   if (!isDesktop) {
+  //     if (sidemenuVisible) {
+  //       document.body.classList.add("bg-black/80")
+  //     } else {
+  //       document.body.classList.remove("bg-black/80")
+  //     }
+  //   }
+  // }, [sidemenuVisible])
 
   return (
     <div className="relative min-h-screen p-4 sm:px-8 lg:px-24">

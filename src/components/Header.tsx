@@ -4,7 +4,7 @@ import HeaderText from "./HeaderText"
 function Header() {
   return (
     <header className="mt-4 overflow-hidden">
-      <div className="relative">
+      <div className="relative z-[-1]">
         <ImageCarousel />
         <HeaderText>FREE SHIPPING ON ALL ORDERS ABOVE $50</HeaderText>
         <HeaderText isEven>GET 20% OFF YOUR FIRST ORDER</HeaderText>
