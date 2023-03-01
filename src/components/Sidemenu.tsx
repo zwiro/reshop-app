@@ -37,6 +37,7 @@ function Sidemenu({ toggleSidemenu }: SidemenuProps) {
               key={`${category}-${i}`}
               name={category.name}
               subcategories={category.subcategories}
+              path={category.path}
             />
           ))}
         </ul>

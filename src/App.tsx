@@ -1,6 +1,5 @@
 import Nav from "./components/Nav"
 import Sidemenu from "./components/Sidemenu"
-import data from "./shopData"
 import { useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import useMediaQuery from "./hooks/useMediaQuery"
