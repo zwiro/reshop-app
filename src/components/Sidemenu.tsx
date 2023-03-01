@@ -22,7 +22,7 @@ function Sidemenu({ toggleSidemenu }: SidemenuProps) {
       {...sidemenuAnimation}
       className="absolute top-0 bottom-0 left-0 z-50 flex w-1/3 flex-col border-r border-slate-100 bg-zinc-700 p-4 text-slate-100"
     >
-      <div className="fixed top-4">
+      <div className="sticky top-4">
         <div className="flex items-center gap-4">
           <Logo />
           <AiOutlineCloseCircle
