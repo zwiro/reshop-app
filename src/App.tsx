@@ -1,11 +1,13 @@
 import Nav from "./components/Nav"
 import Sidemenu from "./components/Sidemenu"
 import data from "./shopData"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import useMediaQuery from "./hooks/useMediaQuery"
 import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage"
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import ItemsPage from "./pages/ItemsPage"
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
@@ -18,26 +20,23 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   if (!isDesktop) {
-  //     if (sidemenuVisible) {
-  //       document.body.classList.add("bg-black/80")
-  //     } else {
-  //       document.body.classList.remove("bg-black/80")
-  //     }
-  //   }
-  // }, [sidemenuVisible])
-
   return (
     <div className="relative min-h-screen p-4 sm:px-8 lg:px-24">
-      <Nav toggleSidemenu={toggleSidemenu} />
-      <AnimatePresence>
-        {sidemenuVisible && !isDesktop && (
-          <Sidemenu toggleSidemenu={toggleSidemenu} />
-        )}
-      </AnimatePresence>
-      <HomePage />
-      {isDesktop && <Footer />}
+      <BrowserRouter>
+        <Nav toggleSidemenu={toggleSidemenu} />
+        <AnimatePresence>
+          {sidemenuVisible && !isDesktop && (
+            <Sidemenu toggleSidemenu={toggleSidemenu} />
+          )}
+        </AnimatePresence>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/items/:type" element={<ItemsPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+
+        {isDesktop && <Footer />}
+      </BrowserRouter>
     </div>
   )
 }

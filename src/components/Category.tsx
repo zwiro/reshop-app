@@ -2,8 +2,9 @@ import { CategoriesType } from "./Nav"
 import { MdExpandMore } from "react-icons/md"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
-function Category({ name, subcategories }: CategoriesType) {
+function Category({ name, subcategories, path }: CategoriesType) {
   const [categoryExpanded, setCategoryExpanded] = useState<Boolean>(false)
 
   const subcategoriesAnimation = {
@@ -25,9 +26,11 @@ function Category({ name, subcategories }: CategoriesType) {
           categoryExpanded && "bg-zinc-700 text-slate-100"
         } `}
       >
-        <span className="text-xl font-bold transition-colors hover:text-blue-500 sm:text-base lg:text-lg xl:text-xl">
-          {name}
-        </span>
+        <Link to={path}>
+          <span className="text-xl font-bold transition-colors hover:text-blue-500 sm:text-base lg:text-lg xl:text-xl">
+            {name}
+          </span>
+        </Link>
         {subcategories && (
           <MdExpandMore
             className={`transition-transform ${

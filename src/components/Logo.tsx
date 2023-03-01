@@ -1,5 +1,11 @@
+import { Link } from "react-router-dom"
+
 function Logo() {
-  return <div className="text-2xl font-bold">reshop.</div>
+  return (
+    <Link to="/">
+      <div className="text-2xl font-bold">reshop.</div>
+    </Link>
+  )
 }
 
 export default Logo

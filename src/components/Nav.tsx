@@ -12,6 +12,7 @@ export type NavProps = {
 export type CategoriesType = {
   name: string
   subcategories?: string[]
+  path?: string
 }
 export const categories: CategoriesType[] = [
   {
@@ -33,8 +34,8 @@ export const categories: CategoriesType[] = [
     name: "Footwear",
     subcategories: ["Sneakers", "Boots", "Sandals", "Heels", "Flats"],
   },
-  { name: "Accessories" },
-  { name: "All items" },
+  { name: "Accessories", path: "/items/accessories" },
+  { name: "All items", path: "/items/all" },
 ]
 
 function Nav({ toggleSidemenu }: NavProps) {
@@ -50,11 +51,7 @@ function Nav({ toggleSidemenu }: NavProps) {
       {isDesktop && (
         <ul className="flex w-full justify-center gap-1 lg:gap-10 xl:gap-16">
           {categories.map((category, i) => (
-            <Category
-              key={`${category}-${i}`}
-              name={category.name}
-              subcategories={category.subcategories}
-            />
+            <Category key={`${category}-${i}`} {...category} />
           ))}
         </ul>
       )}
