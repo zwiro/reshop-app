@@ -2,9 +2,11 @@ import { BsSearch } from "react-icons/bs"
 import { AiOutlineCloseCircle } from "react-icons/ai"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import useMediaQuery from "../hooks/useMediaQuery"
 
 function Searchbar() {
   const [searchBarVisible, setSearchBarVisible] = useState<Boolean>(false)
+  const isXlScreen = useMediaQuery("(min-width: 1280px)")
 
   const iconAnimation = {
     initial: { scale: 0, x: 20 },
@@ -15,7 +17,7 @@ function Searchbar() {
 
   const inputAnimation = {
     initial: { width: 0 },
-    animate: { width: 150 },
+    animate: isXlScreen ? { width: 200 } : { width: 100 },
     exit: { width: 0, opacity: 0 },
     transition: { duration: 0.2 },
   }

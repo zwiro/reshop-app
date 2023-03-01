@@ -44,11 +44,11 @@ function Nav({ toggleSidemenu }: NavProps) {
       <AiOutlineMenu
         onClick={(e) => toggleSidemenu(e)}
         size={30}
-        className="cursor-pointer transition-transform hover:rotate-180 md:hidden"
+        className="relative cursor-pointer transition-transform hover:rotate-180 md:hidden"
       />
       <Logo />
       {isDesktop && (
-        <ul className="flex w-full justify-center gap-1 md:gap-4 lg:gap-10 xl:gap-16">
+        <ul className="flex w-full justify-center gap-1 lg:gap-10 xl:gap-16">
           {categories.map((category, i) => (
             <Category
               key={`${category}-${i}`}
