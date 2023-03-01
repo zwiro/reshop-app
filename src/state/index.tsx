@@ -1,16 +1,6 @@
 import { createContext, useReducer } from "react"
 import { DataTypes } from "../shopData"
 
-// enum ItemsActionType {
-//   ADD_ITEM = "ADD_ITEM",
-//   REMOVE_ITEM = "REMOVE_ITEM",
-// }
-
-// interface ItemsAction {
-//   type: ItemsActionType
-//   payload: { item: DataTypes }
-// }
-
 type State = {
   items: DataTypes[]
 }
