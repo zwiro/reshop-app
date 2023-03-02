@@ -8,11 +8,11 @@ function Filters() {
         (category, i) =>
           category.name !== "All items" && (
             <div key={`${category}-${i}`}>
-              <Checkbox value={category.name} isCategory />
+              <Checkbox value={category.name} category={category} isCategory />
               <ul>
                 {category.subcategories?.map((subcategory, i) => (
                   <li key={`${subcategory}-${i}`}>
-                    <Checkbox value={subcategory} />
+                    <Checkbox value={subcategory} category={category} />
                   </li>
                 ))}
               </ul>

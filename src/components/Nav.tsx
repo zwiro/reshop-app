@@ -29,10 +29,12 @@ export const categories: CategoriesType[] = [
       "Shorts",
       "Coats",
     ],
+    path: "/items/clothing",
   },
   {
     name: "Footwear",
     subcategories: ["Sneakers", "Boots", "Sandals", "Heels", "Flats"],
+    path: "/items/footwear",
   },
   { name: "Accessories", path: "/items/accessories" },
   { name: "All items", path: "/items/all" },
@@ -49,7 +51,7 @@ function Nav({ toggleSidemenu }: NavProps) {
       />
       <Logo />
       {isDesktop && (
-        <ul className="flex w-full justify-center gap-1 lg:gap-10 xl:gap-16">
+        <ul className="relative z-[1000] flex w-full justify-center gap-1 lg:gap-10 xl:gap-16">
           {categories.map((category, i) => (
             <Category key={`${category}-${i}`} {...category} />
           ))}

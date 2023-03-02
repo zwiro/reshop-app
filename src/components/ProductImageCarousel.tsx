@@ -18,7 +18,7 @@ function ProductImageCarousel({ images }: ProductImageCarouselTypes) {
       <motion.div
         key={image}
         {...imageAnimation}
-        className="group relative flex cursor-pointer overflow-hidden"
+        className="group relative -z-10 flex cursor-pointer overflow-hidden"
       >
         <img
           onClick={() => cycleImage()}

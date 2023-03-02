@@ -20,7 +20,9 @@ function ProductsPanel({ length }: ProductsPanelTypes) {
       </div>
       <div
         onClick={() => setSortingOptionsVisible((prevState) => !prevState)}
-        className="relative ml-auto flex cursor-pointer items-center font-bold"
+        className={`relative z-[1000] ml-auto flex cursor-pointer items-center bg-transparent px-2 font-bold transition-colors ${
+          sortingOptionVisible && "bg-zinc-700 text-slate-100"
+        } `}
       >
         Sort
         <MdExpandMore

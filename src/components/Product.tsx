@@ -19,9 +19,9 @@ function Product({
   colors,
 }: ProductProps) {
   return (
-    <div className="w-64 overflow-hidden bg-zinc-700">
+    <div className="w-64 overflow-hidden">
       <ProductImageCarousel images={images} />
-      <div className="flex flex-col border border-t-0 border-zinc-700 p-4 text-slate-100">
+      <div className="flex flex-col bg-zinc-700 p-4 text-slate-100">
         <span className="text-xs font-medium capitalize">{product}</span>
         <div className="flex justify-between">
           <span className="font-bold">{name}</span>

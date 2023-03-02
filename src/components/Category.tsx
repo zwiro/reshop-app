@@ -26,11 +26,9 @@ function Category({ name, subcategories, path }: CategoriesType) {
           categoryExpanded && "bg-zinc-700 text-slate-100"
         } `}
       >
-        <Link to={path}>
-          <span className="text-xl font-bold transition-colors hover:text-blue-500 sm:text-base lg:text-lg xl:text-xl">
-            {name}
-          </span>
-        </Link>
+        <span className="text-xl font-bold transition-colors hover:text-blue-500 sm:text-base lg:text-lg xl:text-xl">
+          {!subcategories ? <Link to={path}>{name}</Link> : name}
+        </span>
         {subcategories && (
           <MdExpandMore
             className={`transition-transform ${
@@ -43,7 +41,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
         {categoryExpanded && (
           <motion.ul
             {...subcategoriesAnimation}
-            className="sm:bg-zinc-700 sm:p-2 sm:text-base sm:text-slate-100 md:absolute md:left-24 md:right-24 md:grid md:grid-cols-3 md:gap-4"
+            className="sm:bg-zinc-700 sm:p-2 sm:text-base sm:text-slate-100 md:absolute md:left-0 md:right-0 md:grid md:grid-cols-3 md:gap-4"
           >
             {subcategories?.map((subcategory, i) => (
               <li
@@ -54,7 +52,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
               </li>
             ))}
             <li className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0 md:text-lg">
-              See all items
+              <Link to={path}> See all items</Link>
             </li>
           </motion.ul>
         )}
