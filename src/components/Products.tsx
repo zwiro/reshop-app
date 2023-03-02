@@ -7,7 +7,7 @@ type ProductsProps = {
 
 function Products({ data }: ProductsProps) {
   return (
-    <div className="mt-4 grid grid-cols-fluid place-items-center gap-4">
+    <div className="col-span-2 mt-4 grid grid-cols-fluid place-items-center gap-4 md:col-span-1">
       {data.map((item) => (
         <Product
           key={item.id}

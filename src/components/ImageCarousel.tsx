@@ -1,13 +1,19 @@
 import { useEffect } from "react"
 import { motion, AnimatePresence, useCycle } from "framer-motion"
-import heroImage1 from "../assets/hero-1.jpg"
-import heroImage2 from "../assets/hero-2.jpg"
-import heroImage3 from "../assets/hero-3.jpg"
 
 const images = [
-  { id: 1, src: heroImage1 },
-  { id: 2, src: heroImage2 },
-  { id: 3, src: heroImage3 },
+  {
+    id: 1,
+    src: "https://images.unsplash.com/flagged/photo-1570733117311-d990c3816c47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1612731486606-2614b4d74921?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1120&q=80",
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1471119017026-179f1bb0a70e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1137&q=80",
+  },
 ]
 
 const imageVariants = {
