@@ -33,6 +33,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/items/:type" element={<ItemsPage />} />
+            <Route path="/items/:type/:subtype" element={<ItemsPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
 

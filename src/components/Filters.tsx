@@ -12,7 +12,11 @@ function Filters() {
               <ul>
                 {category.subcategories?.map((subcategory, i) => (
                   <li key={`${subcategory}-${i}`}>
-                    <Checkbox value={subcategory} category={category} />
+                    <Checkbox
+                      value={subcategory.name}
+                      subcategory={subcategory}
+                      category={category}
+                    />
                   </li>
                 ))}
               </ul>

@@ -11,29 +11,41 @@ export type NavProps = {
 
 export type CategoriesType = {
   name: string
-  subcategories?: string[]
+  subcategories?: SubcategoriesType[]
   path?: string
 }
+
+export type SubcategoriesType = {
+  name: string
+  path: string
+}
+
 export const categories: CategoriesType[] = [
   {
     name: "Clothing",
     subcategories: [
-      "T-Shirts",
-      "Dresses",
-      "Jeans",
-      "Jackets",
-      "Sweaters",
-      "Hoodies",
-      "Blazers",
-      "Skirts",
-      "Shorts",
-      "Coats",
+      { name: "T-Shirts", path: `/items/clothing/tshirts` },
+      { name: "Dresses", path: `/items/clothing/dresses` },
+      { name: "Jeans", path: `/items/clothing/jeans` },
+      { name: "Jackets", path: `/items/clothing/jackets` },
+      { name: "Sweaters", path: `/items/clothing/sweaters` },
+      { name: "Hoodies", path: `/items/clothing/hoodies` },
+      { name: "Blazers", path: `/items/clothing/blazers` },
+      { name: "Skirts", path: `/items/clothing/skirts` },
+      { name: "Shorts", path: `/items/clothing/shorts` },
+      { name: "Coats", path: `/items/clothing/coats` },
     ],
     path: "/items/clothing",
   },
   {
     name: "Footwear",
-    subcategories: ["Sneakers", "Boots", "Sandals", "Heels", "Flats"],
+    subcategories: [
+      { name: "Sneakers", path: "/items/footwear/sneakers" },
+      { name: "Boots", path: "/items/footwear/boots" },
+      { name: "Sandals", path: "/items/footwear/sandals" },
+      { name: "Heels", path: "/items/footwear/heels" },
+      { name: "Flats", path: "/items/footwear/flats" },
+    ],
     path: "/items/footwear",
   },
   { name: "Accessories", path: "/items/accessories" },

@@ -1,25 +1,36 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { CategoriesType } from "./Nav"
+import { CategoriesType, SubcategoriesType } from "./Nav"
 
 type CheckboxProps = {
   value: string
+  subcategory?: SubcategoriesType
   isCategory?: boolean
   category: CategoriesType
 }
 
-function Checkbox({ value, isCategory, category }: CheckboxProps) {
+function Checkbox({ value, subcategory, isCategory, category }: CheckboxProps) {
   const { type } = useParams()
+  const { subtype } = useParams()
+  console.log("subtype", subtype)
+  console.log("value", value)
   const [isChecked, setIsChecked] = useState(
-    type === "all" || type === category.name.toLowerCase() ? true : false
+    type === "all" ||
+      subtype === value.toLowerCase() ||
+      (subtype === undefined && type === category.name.toLowerCase())
+      ? true
+      : false
   )
-  console.log(value, category, type)
 
   useEffect(() => {
     setIsChecked(
-      type === "all" || type === category.name.toLowerCase() ? true : false
+      type === "all" ||
+        subtype === value.toLowerCase() ||
+        (subtype === undefined && type === category.name.toLowerCase())
+        ? true
+        : false
     )
-  }, [type])
+  }, [type, subtype])
 
   return (
     <div className="flex items-center gap-2">

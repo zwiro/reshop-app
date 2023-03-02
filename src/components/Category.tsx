@@ -48,7 +48,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
                 key={`${subcategory}-${i}`}
                 className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0 md:text-lg"
               >
-                {subcategory}
+                <Link to={subcategory.path}>{subcategory.name}</Link>
               </li>
             ))}
             <li className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0 md:text-lg">
