@@ -1,14 +1,12 @@
 import Product from "./Product"
-import { DataTypes } from "../shopData"
+import { useContext } from "react"
+import { ItemsContext } from "../state"
 
-type ProductsProps = {
-  data: DataTypes[]
-}
-
-function Products({ data }: ProductsProps) {
+function Products() {
+  const { items } = useContext(ItemsContext)
   return (
     <div className="col-span-2 mt-4 grid grid-cols-fluid place-items-center gap-4 md:col-span-1">
-      {data.map((item) => (
+      {items.map((item) => (
         <Product
           key={item.id}
           images={item.images}

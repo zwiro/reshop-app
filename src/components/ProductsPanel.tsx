@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { MdExpandMore } from "react-icons/md"
+import SortOptions from "./SortOptions"
 
 type ProductsPanelTypes = {
   length: number
@@ -14,9 +15,10 @@ function ProductsPanel({ length }: ProductsPanelTypes) {
         <h1 className="text-2xl font-bold capitalize">{type}</h1>
         <span>{length} products</span>
       </div>
-      <div className="ml-auto flex cursor-pointer items-center font-bold">
+      <div className="relative ml-auto flex cursor-pointer items-center font-bold">
         Sort
         <MdExpandMore />
+        <SortOptions />
       </div>
     </div>
   )
