@@ -7,7 +7,6 @@ import { ItemsContext } from "../state"
 
 function ItemsPage() {
   const { items } = useContext(ItemsContext)
-  console.log(items)
   const isMdScreen = useMediaQuery("(min-width: 768px)")
   return (
     <main className="mt-4 grid grid-cols-[1fr_3fr] grid-rows-[1fr_auto] md:mb-24 xl:grid-cols-[1fr_5fr]">

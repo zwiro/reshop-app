@@ -19,7 +19,7 @@ function Product({
   colors,
 }: ProductProps) {
   return (
-    <div className="w-64 overflow-hidden">
+    <div className="group w-64 overflow-hidden">
       <ProductImageCarousel images={images} />
       <div className="flex flex-col bg-zinc-700 p-4 text-slate-100">
         <span className="text-xs font-medium capitalize">{product}</span>

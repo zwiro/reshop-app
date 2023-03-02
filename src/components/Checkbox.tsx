@@ -12,30 +12,48 @@ type CheckboxProps = {
 function Checkbox({ value, subcategory, isCategory, category }: CheckboxProps) {
   const { type } = useParams()
   const { subtype } = useParams()
-  console.log("subtype", subtype)
-  console.log("value", value)
+
   const [isChecked, setIsChecked] = useState(
     type === "all" ||
       subtype === value.toLowerCase() ||
+      (subtype === value.toLowerCase() &&
+        subcategory &&
+        category.subcategories?.includes(subcategory)) ||
       (subtype === undefined && type === category.name.toLowerCase())
       ? true
       : false
   )
 
-  useEffect(() => {
+  const checkPage = () => {
     setIsChecked(
       type === "all" ||
-        subtype === value.toLowerCase() ||
-        (subtype === undefined && type === category.name.toLowerCase())
+        type === value.toLowerCase() ||
+        (subtype === undefined && type === category.name.toLowerCase()) ||
+        subtype === value.toLowerCase()
         ? true
         : false
     )
+  }
+
+  useEffect(() => {
+    checkPage()
   }, [type, subtype])
+
+  const handleChange = (e: React.ChangeEvent) => {
+    const target = e.target as HTMLInputElement
+    if (
+      category.subcategories?.some((subcategory) =>
+        subcategory.name.includes(target.value)
+      )
+    ) {
+      setIsChecked(true)
+    }
+  }
 
   return (
     <div className="flex items-center gap-2">
       <input
-        onClick={() => setIsChecked((prevChecked) => !prevChecked)}
+        onChange={(e) => handleChange(e)}
         type="checkbox"
         id={value}
         value={value}

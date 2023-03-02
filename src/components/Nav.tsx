@@ -24,7 +24,7 @@ export const categories: CategoriesType[] = [
   {
     name: "Clothing",
     subcategories: [
-      { name: "T-Shirts", path: `/items/clothing/tshirts` },
+      { name: "T-Shirts", path: `/items/clothing/t-shirts` },
       { name: "Dresses", path: `/items/clothing/dresses` },
       { name: "Jeans", path: `/items/clothing/jeans` },
       { name: "Jackets", path: `/items/clothing/jackets` },
