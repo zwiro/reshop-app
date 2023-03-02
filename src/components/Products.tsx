@@ -13,6 +13,8 @@ function Products() {
           price={item.price}
           name={item.name}
           product={item.product}
+          sizes={item.sizes}
+          colors={item.colors}
         />
       ))}
     </div>
