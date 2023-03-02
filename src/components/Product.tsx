@@ -1,6 +1,5 @@
 import ProductOptionSelect from "./ProductOptionSelect"
-import { AnimatePresence, motion, useCycle } from "framer-motion"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
+import ProductImageCarousel from "./ProductImageCarousel"
 
 type ProductProps = {
   images: string[]
@@ -19,35 +18,9 @@ function Product({
   sizes,
   colors,
 }: ProductProps) {
-  const [image, cycleImage] = useCycle(...images.keys())
-
-  const imageAnimation = {
-    initial: { x: "-100%" },
-    animate: { x: 0, transition: { duration: 0.5 } },
-    exit: { scale: 0, x: -100 },
-    transition: { type: "tween" },
-  }
-
   return (
     <div className="w-64 overflow-hidden bg-zinc-700">
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={image}
-          {...imageAnimation}
-          className="group relative flex cursor-pointer overflow-hidden"
-        >
-          <img
-            onClick={() => cycleImage()}
-            src={images[image]}
-            alt=""
-            className="h-72 w-64 object-cover"
-          />
-          <BsFillArrowRightCircleFill
-            className="absolute right-2 top-1/2 text-slate-100 opacity-0 transition-opacity group-hover:animate-pulse group-hover:opacity-100"
-            size={30}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <ProductImageCarousel images={images} />
       <div className="flex flex-col border border-t-0 border-zinc-700 p-4 text-slate-100">
         <span className="text-xs font-medium capitalize">{product}</span>
         <div className="flex justify-between">
