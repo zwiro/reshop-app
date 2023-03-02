@@ -16,10 +16,12 @@ function Searchbar() {
   }
 
   const inputAnimation = {
-    initial: { width: 0 },
-    animate: isXlScreen ? { width: 200 } : { width: 100 },
+    initial: { width: 0, opacity: 0 },
+    animate: isXlScreen
+      ? { width: 200, opacity: 1 }
+      : { width: 100, opacity: 1 },
     exit: { width: 0, opacity: 0 },
-    transition: { duration: 0.2 },
+    transition: { opacity: { duration: 0.2 } },
   }
 
   return (
