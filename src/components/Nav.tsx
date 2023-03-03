@@ -13,42 +13,46 @@ export type CategoriesType = {
   name: string
   subcategories?: SubcategoriesType[]
   path?: string
+  isChecked?: boolean
 }
 
 export type SubcategoriesType = {
   name: string
   path: string
+  isChecked: boolean
 }
 
 export const categories: CategoriesType[] = [
   {
     name: "Clothing",
     subcategories: [
-      { name: "T-Shirts", path: `/items/clothing/t-shirts` },
-      { name: "Dresses", path: `/items/clothing/dresses` },
-      { name: "Jeans", path: `/items/clothing/jeans` },
-      { name: "Jackets", path: `/items/clothing/jackets` },
-      { name: "Sweaters", path: `/items/clothing/sweaters` },
-      { name: "Hoodies", path: `/items/clothing/hoodies` },
-      { name: "Blazers", path: `/items/clothing/blazers` },
-      { name: "Skirts", path: `/items/clothing/skirts` },
-      { name: "Shorts", path: `/items/clothing/shorts` },
-      { name: "Coats", path: `/items/clothing/coats` },
+      { name: "T-Shirts", path: "/items/clothing/t-shirts", isChecked: false },
+      { name: "Dresses", path: "/items/clothing/dresses", isChecked: false },
+      { name: "Jeans", path: "/items/clothing/jeans", isChecked: false },
+      { name: "Jackets", path: "/items/clothing/jackets", isChecked: false },
+      { name: "Sweaters", path: "/items/clothing/sweaters", isChecked: false },
+      { name: "Hoodies", path: "/items/clothing/hoodies", isChecked: false },
+      { name: "Blazers", path: "/items/clothing/blazers", isChecked: false },
+      { name: "Skirts", path: "/items/clothing/skirts", isChecked: false },
+      { name: "Shorts", path: "/items/clothing/shorts", isChecked: false },
+      { name: "Coats", path: "/items/clothing/coats", isChecked: false },
     ],
     path: "/items/clothing",
+    isChecked: false,
   },
   {
     name: "Footwear",
     subcategories: [
-      { name: "Sneakers", path: "/items/footwear/sneakers" },
-      { name: "Boots", path: "/items/footwear/boots" },
-      { name: "Sandals", path: "/items/footwear/sandals" },
-      { name: "Heels", path: "/items/footwear/heels" },
-      { name: "Flats", path: "/items/footwear/flats" },
+      { name: "Sneakers", path: "/items/footwear/sneakers", isChecked: false },
+      { name: "Boots", path: "/items/footwear/boots", isChecked: false },
+      { name: "Sandals", path: "/items/footwear/sandals", isChecked: false },
+      { name: "Heels", path: "/items/footwear/heels", isChecked: false },
+      { name: "Flats", path: "/items/footwear/flats", isChecked: false },
     ],
     path: "/items/footwear",
+    isChecked: false,
   },
-  { name: "Accessories", path: "/items/accessories" },
+  { name: "Accessories", path: "/items/accessories", isChecked: false },
   { name: "All items", path: "/items/all" },
 ]
 
