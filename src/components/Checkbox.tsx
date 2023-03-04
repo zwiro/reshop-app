@@ -5,15 +5,143 @@ import SubCheckbox from "./SubCheckbox"
 
 type CheckboxProps = {
   value: CategoriesType
+  name: string
 }
 
-function Checkbox({ value }: CheckboxProps) {
+function Checkbox({ value, name }: CheckboxProps) {
   const [category, setCategory] = useState(value)
 
   const { type } = useParams()
   const { subtype } = useParams()
 
-  const checkPage = () => {}
+  const checkPage = () => {
+    if (type === "all") {
+      setCategory((prevCategory) => {
+        const newSubcategories = prevCategory.subcategories?.map(
+          (subcategory) => {
+            return {
+              ...subcategory,
+              isChecked: true,
+            }
+          }
+        )
+        return {
+          ...prevCategory,
+          isChecked: true,
+          subcategories: newSubcategories,
+        }
+      })
+    } else if (type && !subtype) {
+      setCategory((prevCategory) => {
+        if (prevCategory.subcategories) {
+          if (prevCategory.name.toLowerCase() === type) {
+            const newSubcategories = prevCategory.subcategories?.map(
+              (subcategory) => {
+                if (category.subcategories?.includes(subcategory)) {
+                  return {
+                    ...subcategory,
+                    isChecked: true,
+                  }
+                } else {
+                  return {
+                    ...subcategory,
+                    isChecked: false,
+                  }
+                }
+              }
+            )
+            return {
+              ...prevCategory,
+              isChecked: false,
+              subcategories: newSubcategories,
+            }
+          } else {
+            const newSubcategories = prevCategory.subcategories?.map(
+              (subcategory) => {
+                return {
+                  ...subcategory,
+                  isChecked: false,
+                }
+              }
+            )
+            return {
+              ...prevCategory,
+              isChecked: false,
+              subcategories: newSubcategories,
+            }
+          }
+        } else {
+          if (prevCategory.name.toLowerCase() === type) {
+            return {
+              ...prevCategory,
+              isChecked: true,
+            }
+          } else
+            return {
+              ...prevCategory,
+              isChecked: false,
+            }
+        }
+      })
+    } else if (subtype) {
+      setCategory((prevCategory) => {
+        const newSubcategories = prevCategory.subcategories?.map(
+          (subcategory) => {
+            if (subcategory.name.toLowerCase() === subtype) {
+              return {
+                ...subcategory,
+                isChecked: true,
+              }
+            } else return { ...subcategory, isChecked: false }
+          }
+        )
+        if (category.name.toLowerCase() === type) {
+          return {
+            ...prevCategory,
+            isChecked: true,
+            subcategories: newSubcategories,
+          }
+        } else {
+          const newSubcategories = prevCategory.subcategories?.map(
+            (subcategory) => {
+              return {
+                ...subcategory,
+                isChecked: false,
+              }
+            }
+          )
+          return {
+            ...prevCategory,
+            isChecked: false,
+            subcategories: newSubcategories,
+          }
+        }
+      })
+    } else {
+      setCategory((prevCategory) => {
+        if (prevCategory.subcategories) {
+          const newSubcategories = prevCategory.subcategories?.map(
+            (subcategory) => {
+              return {
+                ...subcategory,
+                isChecked: false,
+              }
+            }
+          )
+          return {
+            ...prevCategory,
+            isChecked: false,
+            subcategories: newSubcategories,
+          }
+        } else {
+          return {
+            ...prevCategory,
+            isChecked: false,
+          }
+        }
+      })
+    }
+  }
 
   useEffect(() => {
     checkPage()
