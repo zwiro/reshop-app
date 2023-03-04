@@ -5,22 +5,28 @@ import { DataTypes } from "../shopData"
 type State = {
   items: DataTypes[]
   cart: DataTypes[]
+  filters: string[]
 }
 
 type Action =
   | { type: "ADD_TO_CART"; payload: { item: DataTypes } }
   | { type: "REMOVE_FROM_CART"; payload: { itemId: number } }
   | { type: "SORT"; payload: { option: string } }
+  | { type: "ADD_FILTER"; payload: { filter: string } }
+  | { type: "REMOVE_FILTER"; payload: { filter: string } }
 
 const initialState: State = {
   items: data,
   cart: [],
+  filters: [],
 }
 
 const ACTIONS = {
   ADD_TO_CART: "ADD_TO_CART",
   REMOVE_FROM_CART: "REMOVE_FROM_CART",
   SORT: "SORT",
+  ADD_FILTER: "ADD_FILTER",
+  REMOVE_FILTER: "REMOVE FILTER",
 }
 
 const reducer = (state: State, action: Action) => {
@@ -51,6 +57,19 @@ const reducer = (state: State, action: Action) => {
         ...state,
         items: sortedItems,
       }
+    case "ADD_FILTER":
+      return {
+        ...state,
+        filters: [...state.filters, action.payload.filter],
+      }
+    case "REMOVE_FILTER":
+      const updatedFilters = state.filters.filter(
+        (filter) => filter !== action.payload.filter
+      )
+      return {
+        ...state,
+        filters: updatedFilters,
+      }
     default:
       return state
   }
@@ -59,17 +78,23 @@ const reducer = (state: State, action: Action) => {
 type ItemsContextType = {
   items: DataTypes[]
   cart: DataTypes[]
+  filters: string[]
   addToCart: (item: DataTypes) => void
   removeFromCart: (itemId: number) => void
   sortBy: (option: string) => void
+  addFilter: (filter: string) => void
+  removeFilter: (filter: string) => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
   items: data,
   cart: [],
+  filters: [],
   addToCart: () => {},
   removeFromCart: () => {},
   sortBy: () => {},
+  addFilter: () => {},
+  removeFilter: () => {},
 })
 
 type Props = {
@@ -91,12 +116,23 @@ export const ItemsProvider = ({ children }: Props) => {
     dispatch({ type: "SORT", payload: { option } })
   }
 
+  const addFilter = (filter: string) => {
+    dispatch({ type: "ADD_FILTER", payload: { filter } })
+  }
+
+  const removeFilter = (filter: string) => {
+    dispatch({ type: "REMOVE_FILTER", payload: { filter } })
+  }
+
   const value = {
     items: state.items,
     cart: state.cart,
+    filters: state.filters,
     addToCart,
     removeFromCart,
     sortBy,
+    addFilter,
+    removeFilter,
   }
 
   return <ItemsContext.Provider value={value}>{children}</ItemsContext.Provider>

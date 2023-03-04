@@ -3,7 +3,8 @@ import { useContext } from "react"
 import { ItemsContext } from "../state"
 
 function Products() {
-  const { items } = useContext(ItemsContext)
+  const { items, filters } = useContext(ItemsContext)
+  console.log(filters)
   return (
     <div className="col-span-2 mt-4 grid grid-cols-fluid place-items-center gap-4 md:col-span-1">
       {items.map((item) => (

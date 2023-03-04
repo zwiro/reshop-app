@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { ItemsContext } from "../state"
 import { useParams } from "react-router-dom"
 import { CategoriesType } from "./Nav"
 import SubCheckbox from "./SubCheckbox"
@@ -9,11 +10,14 @@ type CheckboxProps = {
 }
 
 function Checkbox({ value, name }: CheckboxProps) {
+  const { addFilter, removeFilter } = useContext(ItemsContext)
+
   const [category, setCategory] = useState(value)
 
   const { type } = useParams()
   const { subtype } = useParams()
 
+  //TODO: Simplify this function
   const checkPage = () => {
     if (type === "all") {
       setCategory((prevCategory) => {
@@ -146,6 +150,14 @@ function Checkbox({ value, name }: CheckboxProps) {
   useEffect(() => {
     checkPage()
   }, [type, subtype])
+
+  useEffect(() => {
+    if (category.isChecked) {
+      addFilter(category.name)
+    } else if (!category.isChecked) {
+      removeFilter(category.name)
+    }
+  }, [category])
 
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement

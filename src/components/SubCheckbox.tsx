@@ -1,4 +1,5 @@
-import { useEffect } from "react"
+import { useEffect, useContext } from "react"
+import { ItemsContext } from "../state"
 import { CategoriesType, SubcategoriesType } from "./Nav"
 
 type SubCheckboxProps = {
@@ -8,6 +9,7 @@ type SubCheckboxProps = {
 }
 
 function SubCheckbox({ subcategory, setCategory, category }: SubCheckboxProps) {
+  const { addFilter, removeFilter } = useContext(ItemsContext)
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement
     setCategory((prevCategory: CategoriesType) => {
@@ -46,6 +48,11 @@ function SubCheckbox({ subcategory, setCategory, category }: SubCheckboxProps) {
           isChecked: true,
         }
       })
+    }
+    if (subcategory.isChecked) {
+      addFilter(subcategory.name)
+    } else if (!subcategory.isChecked) {
+      removeFilter(subcategory.name)
     }
   }, [subcategory])
 
