@@ -1,5 +1,7 @@
 export type DataTypes = {
   id: number
+  category: string
+  subcategory?: string
   product: string
   name: string
   sizes: string[]
@@ -12,6 +14,8 @@ export type DataTypes = {
 const data: DataTypes[] = [
   {
     id: 1,
+    category: "Clothing",
+    subcategory: "T-Shirts",
     product: "t-shirt",
     name: "Plain T-shirt",
     sizes: ["S", "M", "XL"],
@@ -27,8 +31,10 @@ const data: DataTypes[] = [
   },
   {
     id: 2,
+    category: "Clothing",
+    subcategory: "Hoodies",
     product: "hoodie",
-    name: "Hoodie with graphic",
+    name: "Graphic Print Hoodie",
     sizes: ["XS", "M", "L", "XL", "XXL"],
     description:
       "Stay cozy and stylish with our premium quality hoodies! Made with ultra-soft and comfortable fabric, our hoodies are perfect for chilly days or lazy weekends. Whether you prefer a classic pullover style or a trendy zip-up design, our collection has something for everyone. Choose from a variety of colors and patterns to match your personal style, and enjoy the added convenience of front pockets and adjustable drawstrings. Perfect for layering or wearing on its own, our hoodies are a must-have for any fashion-forward wardrobe. Upgrade your casual look with our stylish hoodies and stay comfortable and cozy all season long!",
@@ -41,6 +47,8 @@ const data: DataTypes[] = [
   },
   {
     id: 3,
+    category: "Clothing",
+    subcategory: "Sweaters",
     product: "jumper",
     name: "Warm jumper",
     sizes: ["M", "L", "XXL"],
@@ -55,6 +63,8 @@ const data: DataTypes[] = [
   },
   {
     id: 4,
+    category: "Clothing",
+    subcategory: "Jackets",
     product: "jacket",
     name: "Quilted Jacket",
     sizes: ["S", "M", "L", "XL"],
@@ -70,6 +80,8 @@ const data: DataTypes[] = [
   },
   {
     id: 5,
+    category: "Clothing",
+    subcategory: "Dresses",
     product: "dress",
     name: "Floral Print Dress",
     sizes: ["XS", "S", "M", "L"],
@@ -85,6 +97,8 @@ const data: DataTypes[] = [
   },
   {
     id: 6,
+    category: "Clothing",
+    subcategory: "Jeans",
     product: "jeans",
     name: "High-Waisted Skinny Jeans",
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -100,6 +114,8 @@ const data: DataTypes[] = [
   },
   {
     id: 7,
+    category: "Clothing",
+    subcategory: "Sweaters",
     product: "sweater",
     name: "Cable-Knit Sweater",
     sizes: ["S", "M", "L"],
@@ -115,6 +131,8 @@ const data: DataTypes[] = [
   },
   {
     id: 8,
+    category: "Clothing",
+    subcategory: "Blazers",
     product: "blazer",
     name: "Structured Blazer",
     sizes: ["XS", "S", "M", "L", "XL"],
@@ -130,6 +148,8 @@ const data: DataTypes[] = [
   },
   {
     id: 9,
+    category: "Clothing",
+    subcategory: "T-Shirts",
     product: "t-shirt",
     name: "Graphic Print T-Shirt",
     sizes: ["M", "L", "XL"],
@@ -144,6 +164,8 @@ const data: DataTypes[] = [
   },
   {
     id: 10,
+    category: "Clothing",
+    subcategory: "Skirts",
     product: "skirt",
     name: "Pleated Midi Skirt",
     sizes: ["S", "M", "L"],
@@ -157,6 +179,8 @@ const data: DataTypes[] = [
   },
   {
     id: 11,
+    category: "Clothing",
+    subcategory: "Shorts",
     product: "shorts",
     name: "Shorts",
     sizes: ["XS", "S", "M", "L"],
@@ -171,6 +195,8 @@ const data: DataTypes[] = [
   },
   {
     id: 12,
+    category: "Clothing",
+    subcategory: "Coats",
     product: "coat",
     name: "Wool Blend Coat",
     sizes: ["S", "M", "L", "XL"],
@@ -186,6 +212,8 @@ const data: DataTypes[] = [
   },
   {
     id: 13,
+    category: "Footwear",
+    subcategory: "Sneakers",
     product: "sneakers",
     name: "Low-Top Sneakers",
     sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
@@ -200,6 +228,8 @@ const data: DataTypes[] = [
   },
   {
     id: 14,
+    category: "Footwear",
+    subcategory: "Boots",
     product: "boots",
     name: "Leather Chelsea Boots",
     sizes: ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
@@ -214,6 +244,8 @@ const data: DataTypes[] = [
   },
   {
     id: 15,
+    category: "Footwear",
+    subcategory: "Flats",
     product: "flats",
     name: "Ballet Flats",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -227,6 +259,8 @@ const data: DataTypes[] = [
   },
   {
     id: 16,
+    category: "Footwear",
+    subcategory: "Sandals",
     product: "sandals",
     name: "Strappy Sandals",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -240,6 +274,8 @@ const data: DataTypes[] = [
   },
   {
     id: 17,
+    category: "Footwear",
+    subcategory: "Heels",
     product: "heels",
     name: "Classic Stiletto Heels",
     sizes: ["US 6", "US 7", "US 8", "US 9", "US 10", "US 11"],
@@ -254,6 +290,7 @@ const data: DataTypes[] = [
   },
   {
     id: 18,
+    category: "Accessories",
     product: "scarf",
     name: "Cashmere Scarf",
     sizes: ["One Size"],
@@ -268,6 +305,7 @@ const data: DataTypes[] = [
   },
   {
     id: 19,
+    category: "Accessories",
     product: "hat",
     name: "Fedora Hat",
     sizes: ["S/M", "L/XL"],
@@ -282,6 +320,7 @@ const data: DataTypes[] = [
   },
   {
     id: 20,
+    category: "Accessories",
     product: "watch",
     name: "Leather Strap Watch",
     sizes: ["One Size"],
@@ -296,6 +335,7 @@ const data: DataTypes[] = [
   },
   {
     id: 21,
+    category: "Accessories",
     product: "belt",
     name: "Leather Belt",
     sizes: ["S", "M", "L", "XL"],
@@ -309,6 +349,7 @@ const data: DataTypes[] = [
   },
   {
     id: 22,
+    category: "Accessories",
     product: "sunglasses",
     name: "Aviator Sunglasses",
     sizes: ["One Size"],
