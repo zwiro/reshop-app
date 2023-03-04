@@ -46,9 +46,9 @@ const reducer = (state: State, action: Action) => {
       }
     case "SORT":
       const sortedItems = [...state.items].sort((a, b) => {
-        if (action.payload.option === "priceDesc") {
+        if (action.payload.option === "priceAsc") {
           return a.price - b.price
-        } else if (action.payload.option === "priceAsc") {
+        } else if (action.payload.option === "priceDesc") {
           return b.price - a.price
         }
         return 0
