@@ -10,7 +10,6 @@ function ItemsPage() {
   const filteredItems = items.filter((item) =>
     filters.includes(item.subcategory || item.category)
   )
-  console.log(filteredItems)
   const isMdScreen = useMediaQuery("(min-width: 768px)")
 
   return (

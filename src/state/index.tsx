@@ -2,14 +2,26 @@ import { createContext, useReducer } from "react"
 import data from "../shopData"
 import { DataTypes } from "../shopData"
 
+type CartItem = {
+  id: number
+  name: string
+  category: string
+  subcategory?: string
+  product: string
+  size: string
+  color: string
+  image: string
+  price: number
+}
+
 type State = {
   items: DataTypes[]
-  cart: DataTypes[]
+  cart: CartItem[]
   filters: string[]
 }
 
 type Action =
-  | { type: "ADD_TO_CART"; payload: { item: DataTypes } }
+  | { type: "ADD_TO_CART"; payload: { item: CartItem } }
   | { type: "REMOVE_FROM_CART"; payload: { itemId: number } }
   | { type: "SORT"; payload: { option: string } }
   | { type: "ADD_FILTER"; payload: { filter: string } }
@@ -77,9 +89,9 @@ const reducer = (state: State, action: Action) => {
 
 type ItemsContextType = {
   items: DataTypes[]
-  cart: DataTypes[]
+  cart: CartItem[]
   filters: string[]
-  addToCart: (item: DataTypes) => void
+  addToCart: (item: CartItem) => void
   removeFromCart: (itemId: number) => void
   sortBy: (option: string) => void
   addFilter: (filter: string) => void
@@ -104,7 +116,7 @@ type Props = {
 export const ItemsProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const addToCart = (item: DataTypes) => {
+  const addToCart = (item: CartItem) => {
     dispatch({ type: "ADD_TO_CART", payload: { item } })
   }
 

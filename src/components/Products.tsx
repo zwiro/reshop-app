@@ -10,15 +10,7 @@ function Products() {
       {items.map(
         (item) =>
           filters.includes(item.subcategory || item.category) && (
-            <Product
-              key={item.id}
-              images={item.images}
-              price={item.price}
-              name={item.name}
-              product={item.product}
-              sizes={item.sizes}
-              colors={item.colors}
-            />
+            <Product product={item} />
           )
       )}
     </div>
