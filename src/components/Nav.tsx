@@ -4,6 +4,8 @@ import Searchbar from "./Searchbar"
 import Logo from "./Logo"
 import Category from "./Category"
 import useMediaQuery from "../hooks/useMediaQuery"
+import { useContext } from "react"
+import { ItemsContext } from "../state"
 
 export type NavProps = {
   toggleSidemenu: (e: React.MouseEvent) => void
@@ -57,6 +59,8 @@ export const categories: CategoriesType[] = [
 ]
 
 function Nav({ toggleSidemenu }: NavProps) {
+  const { cart } = useContext(ItemsContext)
+  console.log(cart)
   const isDesktop = useMediaQuery("(min-width: 768px)")
   return (
     <nav className="sticky top-0 flex items-center gap-4">
@@ -75,10 +79,17 @@ function Nav({ toggleSidemenu }: NavProps) {
       )}
       <div className="ml-auto flex gap-2">
         <Searchbar />
-        <BsCart
-          size={24}
-          className="cursor-pointer transition-transform hover:scale-125"
-        />
+        <div className="relative">
+          <BsCart
+            size={24}
+            className="cursor-pointer transition-transform hover:scale-125"
+          />
+          {cart.length > 0 && (
+            <div className="absolute -bottom-2 -right-3 h-5 w-6 rounded-md bg-zinc-700 px-1 text-center text-sm text-slate-100">
+              {cart.length}
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   )
