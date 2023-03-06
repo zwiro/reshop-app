@@ -43,8 +43,19 @@ function Product({ product }: ProductProps) {
     })
   }
 
+  const productAnimation = {
+    initial: { scale: 0 },
+    animate: { scale: 1 },
+    exit: { scale: 0 },
+    transition: { type: "tween" },
+  }
+
   return (
-    <div className="group w-64 overflow-hidden">
+    <motion.div
+      layout
+      {...productAnimation}
+      className="group w-64 overflow-hidden"
+    >
       <ProductImageCarousel images={product.images} />
       <div className="flex flex-col bg-zinc-700 p-4 text-slate-100">
         <span className="text-xs font-medium capitalize">
@@ -82,7 +93,7 @@ function Product({ product }: ProductProps) {
           Add to cart
         </motion.button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

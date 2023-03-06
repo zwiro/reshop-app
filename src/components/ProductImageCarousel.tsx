@@ -3,7 +3,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs"
 
 type ProductImageCarouselTypes = {
   images: string[]
-  isProductPage: boolean
+  isProductPage?: boolean
 }
 
 function ProductImageCarousel({
