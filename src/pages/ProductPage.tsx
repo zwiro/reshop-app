@@ -3,6 +3,7 @@ import { ItemsContext } from "../state"
 import { useParams, useNavigate } from "react-router-dom"
 import ProductImageCarousel from "../components/ProductImageCarousel"
 import ProductDetails from "../components/ProductDetails"
+import { motion } from "framer-motion"
 
 function ProductPage() {
   const navigate = useNavigate()
@@ -19,7 +20,12 @@ function ProductPage() {
   }, [])
 
   return (
-    <main className="my-24 flex flex-col items-center justify-center gap-4 md:flex-row lg:my-auto xl:px-28">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="my-24 flex flex-col items-center justify-center gap-4 md:flex-row lg:my-auto xl:px-28"
+    >
       {product && (
         <>
           <div className="md:w-1/3 lg:w-1/2">
@@ -28,7 +34,7 @@ function ProductPage() {
           <ProductDetails product={product} />
         </>
       )}
-    </main>
+    </motion.main>
   )
 }
 

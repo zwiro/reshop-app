@@ -43,17 +43,15 @@ function Product({ product }: ProductProps) {
     })
   }
 
-  const productAnimation = {
-    initial: { scale: 0 },
-    animate: { scale: 1 },
-    exit: { scale: 0 },
-    transition: { type: "tween" },
+  const element = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { type: "tween" } },
   }
 
   return (
     <motion.div
+      variants={element}
       layout
-      {...productAnimation}
       className="group w-64 overflow-hidden"
     >
       <ProductImageCarousel images={product.images} />

@@ -8,6 +8,7 @@ import {
   FaForumbee,
   FaMegaport,
 } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 function Brands() {
   const logos = [
@@ -21,7 +22,12 @@ function Brands() {
     <FaMegaport size={40} />,
   ]
   return (
-    <div className="mt-4 bg-zinc-700 p-4 text-center text-slate-100">
+    <motion.div
+      initial={{ x: "100vw" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mt-4 bg-zinc-700 p-4 text-center text-slate-100"
+    >
       <h2 className="tracking-wider">Our brands</h2>
       <div className="flex flex-wrap justify-center gap-8 py-4 xl:gap-16">
         {logos.map((logo, i) => (
@@ -33,7 +39,7 @@ function Brands() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

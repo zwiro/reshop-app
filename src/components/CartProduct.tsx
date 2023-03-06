@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom"
 import { CartItem } from "../state"
+import { motion } from "framer-motion"
 
 type CartProductProps = {
   item: CartItem
 }
 
+const element = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { type: "tween" } },
+}
+
 function CartProduct({ item }: CartProductProps) {
   return (
-    <div className="mt-4 flex items-center gap-4 bg-zinc-700 p-2 text-slate-100">
+    <motion.div
+      variants={element}
+      className="mt-4 flex items-center gap-4 bg-zinc-700 p-2 text-slate-100"
+    >
       <img src={item.image} alt="" className="h-24 w-14 object-cover sm:w-48" />
       <div className="w-full">
         <div className="flex items-center justify-between">
@@ -31,7 +40,7 @@ function CartProduct({ item }: CartProductProps) {
           <p className="text-lg font-bold">${item.count * item.price}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

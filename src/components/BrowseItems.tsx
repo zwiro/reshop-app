@@ -1,10 +1,16 @@
 import { TbHanger } from "react-icons/tb"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
 
 function BrowseItems() {
   const items = ["T-Shirts", "Hoodies", "Coats", "Dresses", "Jackets", "Jeans"]
   return (
-    <div className="mt-4 text-center">
+    <motion.div
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mt-4 text-center"
+    >
       <h2 className="tracking-wider">Browse items</h2>
       <div className="flex flex-wrap justify-center gap-4 xl:gap-16">
         {items.map((item, i) => (
@@ -19,7 +25,7 @@ function BrowseItems() {
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

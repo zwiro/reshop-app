@@ -3,6 +3,7 @@ import Products from "../components/Products"
 import Filters from "../components/Filters"
 import { useContext, useState, useEffect } from "react"
 import { ItemsContext } from "../state"
+import { motion } from "framer-motion"
 
 function ItemsPage() {
   const { items, filters } = useContext(ItemsContext)
@@ -11,11 +12,16 @@ function ItemsPage() {
   )
 
   return (
-    <main className="mt-4 grid grid-cols-[1fr_3fr] grid-rows-[1fr_auto] md:mb-24 xl:grid-cols-[1fr_5fr]">
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="mt-4 grid grid-cols-[1fr_3fr] grid-rows-[1fr_auto] md:mb-24 xl:grid-cols-[1fr_5fr]"
+    >
       <ProductsPanel length={filteredItems.length} />
       <Filters />
       <Products />
-    </main>
+    </motion.main>
   )
 }
 

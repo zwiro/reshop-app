@@ -69,7 +69,10 @@ function Nav({ toggleSidemenu }: NavProps) {
     setScroll(latest)
   })
   return (
-    <nav
+    <motion.nav
+      initial={{ y: "-100%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
       className={` sticky top-0 z-10 flex items-center gap-4 ${
         scroll > 0 && "transition-colors hover:bg-slate-100/80"
       } `}
@@ -104,7 +107,7 @@ function Nav({ toggleSidemenu }: NavProps) {
           </div>
         </Link>
       </div>
-    </nav>
+    </motion.nav>
   )
 }
 
