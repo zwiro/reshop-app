@@ -3,6 +3,7 @@ import { ItemsContext } from "../state"
 import { useParams } from "react-router-dom"
 import { CategoriesType } from "./Nav"
 import SubCheckbox from "./SubCheckbox"
+import useMediaQuery from "../hooks/useMediaQuery"
 
 type CheckboxProps = {
   value: CategoriesType
@@ -10,6 +11,7 @@ type CheckboxProps = {
 }
 
 function Checkbox({ value, name }: CheckboxProps) {
+  const isMdScreen = useMediaQuery("(min-width: 768px)")
   const { addFilter, removeFilter } = useContext(ItemsContext)
 
   const [category, setCategory] = useState(value)
@@ -198,7 +200,7 @@ function Checkbox({ value, name }: CheckboxProps) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="mb-4 flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <input
           onChange={(e) => handleChange(e)}
