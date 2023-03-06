@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen p-4 sm:px-8 lg:px-24">
+    <div className="relative flex min-h-screen flex-col p-4 sm:px-8 lg:px-24">
       <ItemsProvider>
         <BrowserRouter>
           <Nav toggleSidemenu={toggleSidemenu} />

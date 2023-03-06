@@ -3,12 +3,16 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs"
 
 type ProductImageCarouselTypes = {
   images: string[]
+  isProductPage: boolean
 }
 
-function ProductImageCarousel({ images }: ProductImageCarouselTypes) {
+function ProductImageCarousel({
+  images,
+  isProductPage,
+}: ProductImageCarouselTypes) {
   const [image, cycleImage] = useCycle(...images.keys())
   const imageAnimation = {
-    initial: { x: "-100%" },
+    initial: { x: "-100vw" },
     animate: { x: 0, transition: { duration: 0.5 } },
     exit: { scale: 0, x: -100 },
     transition: { type: "tween" },
@@ -21,7 +25,13 @@ function ProductImageCarousel({ images }: ProductImageCarouselTypes) {
         {...imageAnimation}
         className="group relative flex cursor-pointer overflow-hidden"
       >
-        <img src={images[image]} alt="" className="h-72 w-64 object-cover" />
+        <img
+          src={images[image]}
+          alt=""
+          className={`object-cover ${
+            isProductPage ? "h-96 w-full lg:h-[32rem]" : "h-72 w-64"
+          } `}
+        />
         <BsFillArrowRightCircleFill
           className="absolute right-2 top-1/2 text-slate-100 opacity-0 transition-opacity group-hover:animate-pulse group-hover:opacity-100"
           size={30}
