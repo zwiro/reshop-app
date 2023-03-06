@@ -12,7 +12,8 @@ function CartProduct({ item }: CartProductProps) {
         <div className="flex items-center justify-between">
           <p className="font-bold">{item.name}</p>
           <p className="text-xs">
-            {item.category}/{item.subcategory}
+            {item.category}{" "}
+            {`${item.subcategory ? "/" + " " + item.subcategory : ""}`}
           </p>
         </div>
         <p>
