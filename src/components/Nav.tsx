@@ -4,9 +4,9 @@ import Searchbar from "./Searchbar"
 import Logo from "./Logo"
 import Category from "./Category"
 import useMediaQuery from "../hooks/useMediaQuery"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ItemsContext } from "../state"
-import { motion } from "framer-motion"
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { Link } from "react-router-dom"
 
 export type NavProps = {
@@ -63,8 +63,17 @@ export const categories: CategoriesType[] = [
 function Nav({ toggleSidemenu }: NavProps) {
   const { cart } = useContext(ItemsContext)
   const isDesktop = useMediaQuery("(min-width: 768px)")
+  const { scrollY }: any = useScroll()
+  const [scroll, setScroll] = useState(0)
+  useMotionValueEvent(scrollY, "change", (latest: any) => {
+    setScroll(latest)
+  })
   return (
-    <nav className="sticky top-0 flex items-center gap-4">
+    <nav
+      className={`sticky top-0 flex items-center gap-4 ${
+        scroll > 0 && "transition-colors hover:bg-slate-100/80"
+      } `}
+    >
       <AiOutlineMenu
         onClick={(e) => toggleSidemenu(e)}
         size={30}
