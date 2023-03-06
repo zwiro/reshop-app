@@ -9,6 +9,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import ItemsPage from "./pages/ItemsPage"
 import { ItemsProvider } from "./state"
 import CartPage from "./pages/CartPage"
+import ProductPage from "./pages/ProductPage"
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
@@ -36,6 +37,7 @@ function App() {
             <Route path="/items/:type" element={<ItemsPage />} />
             <Route path="/items/:type/:subtype" element={<ItemsPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/products/:id" element={<ProductPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
 

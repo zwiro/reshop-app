@@ -4,6 +4,7 @@ import { ItemsContext } from "../state"
 import { useContext, useState } from "react"
 import { DataTypes } from "../shopData"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 type ProductProps = {
   product: DataTypes
@@ -50,7 +51,11 @@ function Product({ product }: ProductProps) {
           {product.product}
         </span>
         <div className="flex justify-between">
-          <span className="font-bold">{product.name}</span>
+          <Link to={`/products/${product.id}`}>
+            <span className="font-bold hover:text-blue-600">
+              {product.name}
+            </span>
+          </Link>
           <span>${product.price}</span>
         </div>
         <div className="mt-4 flex gap-4">
