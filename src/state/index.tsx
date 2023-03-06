@@ -45,14 +45,25 @@ const ACTIONS = {
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      if (!state.cart.find((item) => item.id === action.payload.item.id)) {
+      if (
+        !state.cart.find(
+          (item) =>
+            item.id === action.payload.item.id &&
+            item.color === action.payload.item.color &&
+            item.size === action.payload.item.size
+        )
+      ) {
         return {
           ...state,
           cart: [...state.cart, action.payload.item],
         }
       } else {
         const updatedCart = state.cart.map((item) => {
-          if (item.id === action.payload.item.id) {
+          if (
+            item.id === action.payload.item.id &&
+            item.color === action.payload.item.color &&
+            item.size === action.payload.item.size
+          ) {
             return {
               ...item,
               count: item.count + 1,
