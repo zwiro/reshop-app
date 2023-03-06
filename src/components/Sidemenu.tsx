@@ -20,7 +20,7 @@ function Sidemenu({ toggleSidemenu }: SidemenuProps) {
   return (
     <motion.aside
       {...sidemenuAnimation}
-      className="absolute top-0 bottom-0 left-0 z-50 flex w-1/3 flex-col border-r border-slate-100 bg-zinc-700 p-4 text-slate-100"
+      className="absolute top-0 bottom-0 left-0 z-50 flex w-1/2 flex-col border-r border-slate-100 bg-zinc-700 p-4 text-slate-100 sm:w-1/3"
     >
       <div className="sticky top-4">
         <div className="flex items-center gap-4">

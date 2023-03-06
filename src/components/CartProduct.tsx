@@ -8,7 +8,7 @@ type CartProductProps = {
 function CartProduct({ item }: CartProductProps) {
   return (
     <div className="mt-4 flex items-center gap-4 bg-zinc-700 p-2 text-slate-100">
-      <img src={item.image} alt="" className="h-24 w-36 object-cover" />
+      <img src={item.image} alt="" className="h-24 w-14 object-cover sm:w-48" />
       <div className="w-full">
         <div className="flex items-center justify-between">
           <Link to={`/products/${item.id}`}>
