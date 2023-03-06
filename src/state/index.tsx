@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react"
 import data from "../shopData"
 import { DataTypes } from "../shopData"
 
-type CartItem = {
+export type CartItem = {
   id: number
   name: string
   category: string
