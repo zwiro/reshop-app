@@ -19,7 +19,7 @@ function ProductImageCarousel({ images }: ProductImageCarouselTypes) {
         onClick={() => cycleImage()}
         key={image}
         {...imageAnimation}
-        className="group relative -z-10 flex cursor-pointer overflow-hidden group-hover:z-10"
+        className="group relative flex cursor-pointer overflow-hidden"
       >
         <img src={images[image]} alt="" className="h-72 w-64 object-cover" />
         <BsFillArrowRightCircleFill

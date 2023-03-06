@@ -70,7 +70,7 @@ function Nav({ toggleSidemenu }: NavProps) {
   })
   return (
     <nav
-      className={`sticky top-0 flex items-center gap-4 ${
+      className={` sticky top-0 z-10 flex items-center gap-4 ${
         scroll > 0 && "transition-colors hover:bg-slate-100/80"
       } `}
     >
