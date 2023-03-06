@@ -1,8 +1,8 @@
 type ProductOptionSelectTypes = {
   name: string
   options: string[]
-  setSize?: (arg0: string) => void
-  setColor?: (arg0: string) => void
+  setSize: (arg0: string) => void
+  setColor: (arg0: string) => void
 }
 
 function ProductOptionSelect({
@@ -13,10 +13,11 @@ function ProductOptionSelect({
 }: ProductOptionSelectTypes) {
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLSelectElement
+    console.log(target.value)
     if (name === "Size") {
-      setSize?.(target.value)
+      setSize(target.value)
     } else if (name === "Color") {
-      setColor?.(target.value)
+      setColor(target.value)
     }
   }
   return (
