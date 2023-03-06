@@ -85,11 +85,11 @@ function Nav({ toggleSidemenu }: NavProps) {
             <BsCart size={24} className="cursor-pointer" />
             {cart.length > 0 && (
               <motion.div
-                key={cart.length}
+                key={cart.reduce((total, item) => total + item.count, 0)}
                 animate={{ scale: [0, 1] }}
                 className="absolute -bottom-2 -right-3 h-5 w-6 cursor-pointer rounded-md border border-transparent bg-zinc-700 px-1 text-center text-xs text-slate-100 transition-colors group-hover:border-zinc-700 group-hover:bg-slate-100 group-hover:text-zinc-700"
               >
-                {cart.length}
+                {cart.reduce((total, item) => total + item.count, 0)}
               </motion.div>
             )}
           </div>
