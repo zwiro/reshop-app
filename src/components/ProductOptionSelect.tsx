@@ -13,7 +13,6 @@ function ProductOptionSelect({
 }: ProductOptionSelectTypes) {
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLSelectElement
-    console.log(target.value)
     if (name === "Size") {
       setSize(target.value)
     } else if (name === "Color") {

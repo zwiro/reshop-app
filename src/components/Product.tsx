@@ -11,6 +11,7 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   const { addToCart, cart } = useContext(ItemsContext)
+  console.log(cart)
   const [item, setItem] = useState({
     name: product.name,
     category: product.category,
@@ -21,6 +22,7 @@ function Product({ product }: ProductProps) {
     color: "",
     image: product.images[0],
     price: product.price,
+    count: 1,
   })
 
   const setSize = (chosenSize: string): void => {

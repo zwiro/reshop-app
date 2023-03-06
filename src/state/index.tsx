@@ -12,6 +12,7 @@ type CartItem = {
   color: string
   image: string
   price: number
+  count: number
 }
 
 type State = {
@@ -44,9 +45,26 @@ const ACTIONS = {
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      return {
-        ...state,
-        cart: [...state.cart, action.payload.item],
+      if (!state.cart.find((item) => item.id === action.payload.item.id)) {
+        return {
+          ...state,
+          cart: [...state.cart, action.payload.item],
+        }
+      } else {
+        const updatedCart = state.cart.map((item) => {
+          if (item.id === action.payload.item.id) {
+            return {
+              ...item,
+              count: item.count + 1,
+            }
+          } else {
+            return item
+          }
+        })
+        return {
+          ...state,
+          cart: updatedCart,
+        }
       }
     case "REMOVE_FROM_CART":
       const updatedCart = state.cart.filter(
