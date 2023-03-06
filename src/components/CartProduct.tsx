@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { CartItem } from "../state"
 
 type CartProductProps = {
@@ -10,7 +11,11 @@ function CartProduct({ item }: CartProductProps) {
       <img src={item.image} alt="" className="h-24 w-36 object-cover" />
       <div className="w-full">
         <div className="flex items-center justify-between">
-          <p className="font-bold">{item.name}</p>
+          <Link to={`/products/${item.id}`}>
+            <p className="font-bold transition-colors hover:text-blue-600">
+              {item.name}
+            </p>
+          </Link>
           <p className="text-xs">
             {item.category}{" "}
             {`${item.subcategory ? "/" + " " + item.subcategory : ""}`}
