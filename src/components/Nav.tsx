@@ -84,7 +84,7 @@ function Nav({ toggleSidemenu }: NavProps) {
       )}
       <div className="ml-auto flex gap-2">
         <Searchbar />
-        <Link to="/cart">
+        <Link aria-label="See your cart" to="/cart">
           <div className="group relative">
             <BsCart size={24} className="cursor-pointer" />
             {cart.length > 0 && (

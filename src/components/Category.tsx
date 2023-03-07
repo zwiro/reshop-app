@@ -43,7 +43,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
         } `}
       >
         <span className="text-xl font-bold transition-colors hover:text-blue-500 sm:text-base lg:text-lg xl:text-xl">
-          {!subcategories ? <Link to={path}>{name}</Link> : name}
+          {!subcategories ? <Link to={path!}>{name}</Link> : name}
         </span>
         {subcategories && (
           <MdExpandMore
@@ -67,7 +67,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
               </Link>
             ))}
             <li className="text-sm transition-transform hover:translate-x-4 hover:underline sm:transition-none sm:hover:translate-x-0 md:text-lg">
-              <Link to={path}> See all items</Link>
+              <Link to={path!}> See all items</Link>
             </li>
           </motion.ul>
         )}
