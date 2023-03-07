@@ -2,12 +2,12 @@ import ProductOptionSelect from "./ProductOptionSelect"
 import ProductImageCarousel from "./ProductImageCarousel"
 import { ItemsContext } from "../state"
 import { useContext, useState } from "react"
-import { DataTypes } from "../shopData"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { DataType } from "../types"
 
 type ProductProps = {
-  product: DataTypes
+  product: DataType
 }
 
 function Product({ product }: ProductProps) {

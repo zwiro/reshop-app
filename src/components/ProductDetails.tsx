@@ -1,11 +1,11 @@
-import { DataTypes } from "../shopData"
-import { CartItem, ItemsContext } from "../state"
+import { ItemsContext } from "../state"
 import { useState, useEffect, useContext } from "react"
 import ProductOptionSelect from "./ProductOptionSelect"
 import { motion } from "framer-motion"
+import { CartItem, DataType } from "../types"
 
 type ProductDetailsProps = {
-  product: DataTypes
+  product: DataType
 }
 
 function ProductDetails({ product }: ProductDetailsProps) {

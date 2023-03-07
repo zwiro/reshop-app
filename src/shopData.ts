@@ -1,17 +1,6 @@
-export type DataTypes = {
-  id: number
-  category: string
-  subcategory?: string
-  product: string
-  name: string
-  sizes: string[]
-  description: string
-  colors: string[]
-  images: string[]
-  price: number
-}
+import { DataType } from "./types"
 
-const data: DataTypes[] = [
+const data: DataType[] = [
   {
     id: 1,
     category: "Clothing",

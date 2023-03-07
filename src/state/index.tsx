@@ -1,22 +1,9 @@
 import { createContext, useReducer } from "react"
 import data from "../shopData"
-import { DataTypes } from "../shopData"
-
-export type CartItem = {
-  id: number
-  name: string
-  category: string
-  subcategory?: string
-  product: string
-  size: string
-  color: string
-  image: string
-  price: number
-  count: number
-}
+import { CartItem, DataType } from "../types"
 
 type State = {
-  items: DataTypes[]
+  items: DataType[]
   cart: CartItem[]
   filters: string[]
 }
@@ -117,7 +104,7 @@ const reducer = (state: State, action: Action) => {
 }
 
 type ItemsContextType = {
-  items: DataTypes[]
+  items: DataType[]
   cart: CartItem[]
   filters: string[]
   addToCart: (item: CartItem) => void

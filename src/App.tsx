@@ -1,6 +1,6 @@
 import Nav from "./components/Nav"
 import Sidemenu from "./components/Sidemenu"
-import { useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { AnimatePresence } from "framer-motion"
 import useMediaQuery from "./hooks/useMediaQuery"
 import Footer from "./components/Footer"
@@ -11,12 +11,11 @@ import { ItemsProvider } from "./state"
 import CartPage from "./pages/CartPage"
 import ProductPage from "./pages/ProductPage"
 
-//TODO: closing sidemenu & closing category menu & clear imports & move types to file
+//TODO: clear imports & move types to file
 
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
-
   function toggleSidemenu(e: React.MouseEvent) {
     if (!isDesktop) {
       e.stopPropagation()

@@ -4,26 +4,14 @@ import Searchbar from "./Searchbar"
 import Logo from "./Logo"
 import Category from "./Category"
 import useMediaQuery from "../hooks/useMediaQuery"
-import { useContext, useState } from "react"
+import { useContext, useMemo, useState } from "react"
 import { ItemsContext } from "../state"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { Link } from "react-router-dom"
+import { CategoriesType } from "../types"
 
 export type NavProps = {
   toggleSidemenu: (e: React.MouseEvent) => void
-}
-
-export type CategoriesType = {
-  name: string
-  subcategories?: SubcategoriesType[]
-  path?: string
-  isChecked?: boolean
-}
-
-export type SubcategoriesType = {
-  name: string
-  path: string
-  isChecked: boolean
 }
 
 export const categories: CategoriesType[] = [
@@ -68,6 +56,10 @@ function Nav({ toggleSidemenu }: NavProps) {
   useMotionValueEvent(scrollY, "change", (latest: any) => {
     setScroll(latest)
   })
+  const productsCount = useMemo(
+    () => cart.reduce((total, item) => total + item.count, 0),
+    [cart]
+  )
   return (
     <motion.nav
       initial={{ y: "-100%" }}
@@ -97,11 +89,11 @@ function Nav({ toggleSidemenu }: NavProps) {
             <BsCart size={24} className="cursor-pointer" />
             {cart.length > 0 && (
               <motion.div
-                key={cart.reduce((total, item) => total + item.count, 0)}
+                key={productsCount}
                 animate={{ scale: [0, 1] }}
                 className="absolute -bottom-2 -right-3 h-5 w-6 cursor-pointer rounded-md border border-transparent bg-zinc-700 px-1 text-center text-xs text-slate-100 transition-colors group-hover:border-zinc-700 group-hover:bg-slate-100 group-hover:text-zinc-700"
               >
-                {cart.reduce((total, item) => total + item.count, 0)}
+                {productsCount}
               </motion.div>
             )}
           </div>
