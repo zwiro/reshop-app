@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { motion } from "framer-motion"
 import { ItemsContext } from "../../state"
 import CartPanel from "./CartPanel"
@@ -6,7 +6,7 @@ import CartProduct from "./CartProduct"
 import CartSummary from "./CartSummary"
 
 function CartPage() {
-  const { cart, removeFromCart, removeOneFromCart, addOneToCart, setCart } =
+  const { cart, removeFromCart, removeOneFromCart, addOneToCart } =
     useContext(ItemsContext)
 
   const container = {
@@ -42,11 +42,6 @@ function CartPage() {
       }
     }
   }
-
-  useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem("cartItems") || "[]")
-    setCart(cart)
-  }, [])
 
   return (
     <motion.main

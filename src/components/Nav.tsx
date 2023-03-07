@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react"
+import { useContext, useMemo, useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { BsCart } from "react-icons/bs"
@@ -49,7 +49,7 @@ export const categories: CategoriesType[] = [
 ]
 
 function Nav({ toggleSidemenu }: NavProps) {
-  const { cart } = useContext(ItemsContext)
+  const { cart, setCart } = useContext(ItemsContext)
   const isDesktop = useMediaQuery("(min-width: 768px)")
   const { scrollY }: any = useScroll()
   const [scroll, setScroll] = useState(0)
@@ -60,6 +60,12 @@ function Nav({ toggleSidemenu }: NavProps) {
     () => cart.reduce((total, item) => total + item.count, 0),
     [cart]
   )
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cartItems") || "[]")
+    setCart(cart)
+  }, [])
+
   return (
     <motion.nav
       initial={{ y: "-100%" }}
