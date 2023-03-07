@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react"
+import { createContext, useEffect, useReducer } from "react"
 import { CartItem, DataType } from "../types"
 import data from "../shopData"
 
@@ -25,6 +25,7 @@ type Action =
   | { type: "SORT"; payload: { option: string } }
   | { type: "ADD_FILTER"; payload: { filter: string } }
   | { type: "REMOVE_FILTER"; payload: { filter: string } }
+  | { type: "SET_CART"; payload: { cart: CartItem[] } }
 
 const initialState: State = {
   items: data,
@@ -40,6 +41,7 @@ const ACTIONS = {
   SORT: "SORT",
   ADD_FILTER: "ADD_FILTER",
   REMOVE_FILTER: "REMOVE FILTER",
+  SET_CART: "SET_CART",
 }
 
 const reducer = (state: State, action: Action) => {
@@ -53,9 +55,11 @@ const reducer = (state: State, action: Action) => {
             item.size === action.payload.item.size
         )
       ) {
+        const updatedCart = [...state.cart, action.payload.item]
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart))
         return {
           ...state,
-          cart: [...state.cart, action.payload.item],
+          cart: updatedCart,
         }
       } else {
         const updatedCart = state.cart.map((item) => {
@@ -72,6 +76,7 @@ const reducer = (state: State, action: Action) => {
             return item
           }
         })
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart))
         return {
           ...state,
           cart: updatedCart,
@@ -85,6 +90,7 @@ const reducer = (state: State, action: Action) => {
             item.color !== action.payload.color ||
             item.size !== action.payload.size
         )
+        localStorage.setItem("cartItems", JSON.stringify(updatedCart))
         return {
           ...state,
           cart: updatedCart,
@@ -104,6 +110,7 @@ const reducer = (state: State, action: Action) => {
           }
         } else return item
       })
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartRemoved))
       return {
         ...state,
         cart: updatedCartRemoved,
@@ -121,6 +128,7 @@ const reducer = (state: State, action: Action) => {
           }
         } else return item
       })
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartAdded))
       return {
         ...state,
         cart: updatedCartAdded,
@@ -151,6 +159,11 @@ const reducer = (state: State, action: Action) => {
         ...state,
         filters: updatedFilters,
       }
+    case "SET_CART":
+      return {
+        ...state,
+        cart: action.payload.cart,
+      }
     default:
       return state
   }
@@ -167,6 +180,7 @@ type ItemsContextType = {
   sortBy: (option: string) => void
   addFilter: (filter: string) => void
   removeFilter: (filter: string) => void
+  setCart: (cart: CartItem[]) => void
 }
 
 export const ItemsContext = createContext<ItemsContextType>({
@@ -180,6 +194,7 @@ export const ItemsContext = createContext<ItemsContextType>({
   sortBy: () => {},
   addFilter: () => {},
   removeFilter: () => {},
+  setCart: () => {},
 })
 
 type Props = {
@@ -217,6 +232,10 @@ export const ItemsProvider = ({ children }: Props) => {
     dispatch({ type: "REMOVE_FILTER", payload: { filter } })
   }
 
+  const setCart = (cart: CartItem[]) => {
+    dispatch({ type: "SET_CART", payload: { cart } })
+  }
+
   const value = {
     items: state.items,
     cart: state.cart,
@@ -228,6 +247,7 @@ export const ItemsProvider = ({ children }: Props) => {
     sortBy,
     addFilter,
     removeFilter,
+    setCart,
   }
 
   return <ItemsContext.Provider value={value}>{children}</ItemsContext.Provider>
