@@ -7,11 +7,9 @@ import SubCheckbox from "./SubCheckbox"
 
 type CheckboxProps = {
   value: CategoriesType
-  name: string
 }
 
-function Checkbox({ value, name }: CheckboxProps) {
-  const isMdScreen = useMediaQuery("(min-width: 768px)")
+function Checkbox({ value }: CheckboxProps) {
   const { addFilter, removeFilter } = useContext(ItemsContext)
 
   const [category, setCategory] = useState(value)

@@ -19,11 +19,7 @@ function Filters() {
       {categories.map(
         (category, i) =>
           category.name !== "All items" && (
-            <Checkbox
-              key={`${category}-${i}`}
-              value={category}
-              name={category.name}
-            />
+            <Checkbox key={`${category}-${i}`} value={category} />
           )
       )}
     </motion.div>
