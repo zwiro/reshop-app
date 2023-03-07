@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react"
-import { ItemsContext } from "../state"
+import { ItemsContext } from "../../state"
 
 function CartSummary() {
   const { cart } = useContext(ItemsContext)

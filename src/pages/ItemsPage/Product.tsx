@@ -1,10 +1,10 @@
-import ProductOptionSelect from "./ProductOptionSelect"
-import ProductImageCarousel from "./ProductImageCarousel"
-import { ItemsContext } from "../state"
+import ProductOptionSelect from "../../components/ProductOptionSelect"
+import ProductImageCarousel from "../../components/ProductImageCarousel"
+import { ItemsContext } from "../../state"
 import { useContext, useState } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { DataType } from "../types"
+import { DataType } from "../../types"
 
 type ProductProps = {
   product: DataType

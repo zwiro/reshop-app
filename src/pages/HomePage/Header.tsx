@@ -1,4 +1,4 @@
-import ImageCarousel from "../components/ImageCarousel"
+import ImageCarousel from "./ImageCarousel"
 import HeaderText from "./HeaderText"
 
 function Header() {

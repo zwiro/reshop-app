@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import { CartItem } from "../types"
+import { CartItem } from "../../types"
 
 type CartProductProps = {
   item: CartItem

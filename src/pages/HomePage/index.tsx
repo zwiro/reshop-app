@@ -1,7 +1,7 @@
-import Header from "../components/Header"
-import Brands from "../components/Brands"
-import BrowseItems from "../components/BrowseItems"
-import Statistics from "../components/Statistics"
+import Header from "./Header"
+import Brands from "./Brands"
+import BrowseItems from "./BrowseItems"
+import Statistics from "./Statistics"
 import { motion } from "framer-motion"
 
 function HomePage() {

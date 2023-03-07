@@ -1,6 +1,6 @@
 import Product from "./Product"
 import { useContext } from "react"
-import { ItemsContext } from "../state"
+import { ItemsContext } from "../../state"
 import { AnimatePresence, motion } from "framer-motion"
 
 function Products() {

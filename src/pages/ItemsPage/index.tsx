@@ -1,8 +1,8 @@
-import ProductsPanel from "../components/ProductsPanel"
-import Products from "../components/Products"
-import Filters from "../components/Filters"
+import ProductsPanel from "./ProductsPanel"
+import Products from "./Products"
+import Filters from "./Filters"
 import { useContext, useState, useEffect } from "react"
-import { ItemsContext } from "../state"
+import { ItemsContext } from "../../state"
 import { motion } from "framer-motion"
 
 function ItemsPage() {

@@ -1,6 +1,6 @@
 import { useEffect, useContext } from "react"
-import { ItemsContext } from "../state"
-import { CategoriesType, SubcategoriesType } from "../types"
+import { ItemsContext } from "../../state"
+import { CategoriesType, SubcategoriesType } from "../../types"
 
 type SubCheckboxProps = {
   subcategory: SubcategoriesType

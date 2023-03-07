@@ -1,8 +1,8 @@
 import { useContext } from "react"
-import CartPanel from "../components/CartPanel"
-import CartProduct from "../components/CartProduct"
-import CartSummary from "../components/CartSummary"
-import { ItemsContext } from "../state"
+import CartPanel from "./CartPanel"
+import CartProduct from "./CartProduct"
+import CartSummary from "./CartSummary"
+import { ItemsContext } from "../../state"
 import { motion } from "framer-motion"
 
 function CartPage() {

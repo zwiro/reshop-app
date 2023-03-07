@@ -1,6 +1,6 @@
 import Checkbox from "./Checkbox"
-import { categories } from "./Nav"
-import useMediaQuery from "../hooks/useMediaQuery"
+import { categories } from "../../components/Nav"
+import useMediaQuery from "../../hooks/useMediaQuery"
 import { motion } from "framer-motion"
 
 function Filters() {

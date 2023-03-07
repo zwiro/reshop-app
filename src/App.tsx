@@ -11,8 +11,6 @@ import { ItemsProvider } from "./state"
 import CartPage from "./pages/CartPage"
 import ProductPage from "./pages/ProductPage"
 
-//TODO: clear imports & move types to file
-
 function App() {
   const [sidemenuVisible, setSidemenuVisible] = useState<Boolean>(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ItemsContext } from "../state"
+import { ItemsContext } from "../../state"
 import { motion } from "framer-motion"
 
 function SortOptions() {
