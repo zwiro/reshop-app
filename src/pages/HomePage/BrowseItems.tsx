@@ -1,6 +1,6 @@
-import { TbHanger } from "react-icons/tb"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
+import { TbHanger } from "react-icons/tb"
 
 function BrowseItems() {
   const items = ["T-Shirts", "Hoodies", "Coats", "Dresses", "Jackets", "Jeans"]

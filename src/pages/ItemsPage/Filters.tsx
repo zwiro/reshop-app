@@ -1,7 +1,7 @@
-import Checkbox from "./Checkbox"
+import { motion } from "framer-motion"
 import { categories } from "../../components/Nav"
 import useMediaQuery from "../../hooks/useMediaQuery"
-import { motion } from "framer-motion"
+import Checkbox from "./Checkbox"
 
 function Filters() {
   const isMdScreen = useMediaQuery("(min-width: 768px)")

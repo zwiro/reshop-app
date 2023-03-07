@@ -1,7 +1,7 @@
-import { BsSearch } from "react-icons/bs"
-import { AiOutlineCloseCircle } from "react-icons/ai"
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { BsSearch } from "react-icons/bs"
+import { AiOutlineCloseCircle } from "react-icons/ai"
 import useMediaQuery from "../hooks/useMediaQuery"
 
 function Searchbar() {

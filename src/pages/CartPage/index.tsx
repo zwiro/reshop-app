@@ -1,9 +1,9 @@
 import { useContext } from "react"
+import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
 import CartPanel from "./CartPanel"
 import CartProduct from "./CartProduct"
 import CartSummary from "./CartSummary"
-import { ItemsContext } from "../../state"
-import { motion } from "framer-motion"
 
 function CartPage() {
   const { cart } = useContext(ItemsContext)

@@ -1,9 +1,8 @@
-import Category from "./Category"
-import { AiOutlineCloseCircle } from "react-icons/ai"
-import { NavProps } from "./Nav"
 import { motion } from "framer-motion"
+import { AiOutlineCloseCircle } from "react-icons/ai"
+import { NavProps, categories } from "./Nav"
+import Category from "./Category"
 import Logo from "./Logo"
-import { categories } from "./Nav"
 import Socials from "./Socials"
 import Links from "./Links"
 

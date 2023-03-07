@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { ItemsContext } from "../../state"
 import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
 
 function SortOptions() {
   const { sortBy } = useContext(ItemsContext)

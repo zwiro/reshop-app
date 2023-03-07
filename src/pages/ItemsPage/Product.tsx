@@ -1,17 +1,17 @@
+import { useContext, useState } from "react"
+import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
+import { DataType } from "../../types"
 import ProductOptionSelect from "../../components/ProductOptionSelect"
 import ProductImageCarousel from "../../components/ProductImageCarousel"
-import { ItemsContext } from "../../state"
-import { useContext, useState } from "react"
-import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-import { DataType } from "../../types"
 
 type ProductProps = {
   product: DataType
 }
 
 function Product({ product }: ProductProps) {
-  const { addToCart, cart } = useContext(ItemsContext)
+  const { addToCart } = useContext(ItemsContext)
   const [item, setItem] = useState({
     name: product.name,
     category: product.category,

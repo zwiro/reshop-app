@@ -1,8 +1,8 @@
-import { ItemsContext } from "../../state"
 import { useState, useEffect, useContext } from "react"
-import ProductOptionSelect from "../../components/ProductOptionSelect"
 import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
 import { CartItem, DataType } from "../../types"
+import ProductOptionSelect from "../../components/ProductOptionSelect"
 
 type ProductDetailsProps = {
   product: DataType

@@ -1,8 +1,8 @@
+import { motion } from "framer-motion"
 import Header from "./Header"
 import Brands from "./Brands"
 import BrowseItems from "./BrowseItems"
 import Statistics from "./Statistics"
-import { motion } from "framer-motion"
 
 function HomePage() {
   return (

@@ -1,7 +1,7 @@
-import Product from "./Product"
 import { useContext } from "react"
-import { ItemsContext } from "../../state"
 import { AnimatePresence, motion } from "framer-motion"
+import { ItemsContext } from "../../state"
+import Product from "./Product"
 
 function Products() {
   const { items, filters } = useContext(ItemsContext)

@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext } from "react"
-import { ItemsContext } from "../../state"
 import { useParams } from "react-router-dom"
-import SubCheckbox from "./SubCheckbox"
-import useMediaQuery from "../../hooks/useMediaQuery"
+import { ItemsContext } from "../../state"
 import { CategoriesType } from "../../types"
+import useMediaQuery from "../../hooks/useMediaQuery"
+import SubCheckbox from "./SubCheckbox"
 
 type CheckboxProps = {
   value: CategoriesType

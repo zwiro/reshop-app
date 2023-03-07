@@ -1,7 +1,7 @@
-import { MdExpandMore } from "react-icons/md"
 import { useState, useEffect } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { MdExpandMore } from "react-icons/md"
+import { AnimatePresence, motion } from "framer-motion"
 import { CategoriesType } from "../types"
 
 function Category({ name, subcategories, path }: CategoriesType) {

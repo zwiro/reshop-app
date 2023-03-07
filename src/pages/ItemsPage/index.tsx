@@ -1,9 +1,9 @@
+import { useContext } from "react"
+import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
 import ProductsPanel from "./ProductsPanel"
 import Products from "./Products"
 import Filters from "./Filters"
-import { useContext, useState, useEffect } from "react"
-import { ItemsContext } from "../../state"
-import { motion } from "framer-motion"
 
 function ItemsPage() {
   const { items, filters } = useContext(ItemsContext)

@@ -1,9 +1,9 @@
 import { useContext, useState, useEffect } from "react"
-import { ItemsContext } from "../../state"
 import { useParams, useNavigate } from "react-router-dom"
-import ProductImageCarousel from "../../components/ProductImageCarousel"
-import ProductDetails from "./ProductDetails"
 import { motion } from "framer-motion"
+import { ItemsContext } from "../../state"
+import ProductDetails from "./ProductDetails"
+import ProductImageCarousel from "../../components/ProductImageCarousel"
 
 function ProductPage() {
   const navigate = useNavigate()

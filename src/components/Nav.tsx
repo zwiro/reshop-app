@@ -1,14 +1,14 @@
+import { useContext, useMemo, useState } from "react"
+import { Link } from "react-router-dom"
+import { motion, useMotionValueEvent, useScroll } from "framer-motion"
 import { BsCart } from "react-icons/bs"
 import { AiOutlineMenu } from "react-icons/ai"
+import { ItemsContext } from "../state"
+import { CategoriesType } from "../types"
+import useMediaQuery from "../hooks/useMediaQuery"
 import Searchbar from "./Searchbar"
 import Logo from "./Logo"
 import Category from "./Category"
-import useMediaQuery from "../hooks/useMediaQuery"
-import { useContext, useMemo, useState } from "react"
-import { ItemsContext } from "../state"
-import { motion, useMotionValueEvent, useScroll } from "framer-motion"
-import { Link } from "react-router-dom"
-import { CategoriesType } from "../types"
 
 export type NavProps = {
   toggleSidemenu: (e: React.MouseEvent) => void

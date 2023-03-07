@@ -1,8 +1,8 @@
+import { useState } from "react"
 import { useParams } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 import { MdExpandMore } from "react-icons/md"
 import SortOptions from "./SortOptions"
-import { useState } from "react"
-import { AnimatePresence } from "framer-motion"
 
 type ProductsPanelTypes = {
   length: number

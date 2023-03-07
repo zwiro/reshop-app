@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react"
-import data from "../shopData"
 import { CartItem, DataType } from "../types"
+import data from "../shopData"
 
 type State = {
   items: DataType[]
