@@ -6,7 +6,8 @@ import CartProduct from "./CartProduct"
 import CartSummary from "./CartSummary"
 
 function CartPage() {
-  const { cart, removeFromCart } = useContext(ItemsContext)
+  const { cart, removeFromCart, removeOneFromCart, addOneToCart } =
+    useContext(ItemsContext)
 
   const container = {
     hidden: { opacity: 0 },
@@ -18,6 +19,30 @@ function CartPage() {
     },
   }
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (e.target instanceof HTMLButtonElement) {
+      if (e.target.dataset.action === "removeFromCart") {
+        removeFromCart(
+          Number(e.target.dataset.itemId),
+          e.target.dataset.color!,
+          e.target.dataset.size!
+        )
+      } else if (e.target.dataset.action === "removeOneFromCart") {
+        removeOneFromCart(
+          Number(e.target.dataset.itemId),
+          e.target.dataset.color!,
+          e.target.dataset.size!
+        )
+      } else if (e.target.dataset.action === "addOneToCart") {
+        addOneToCart(
+          Number(e.target.dataset.itemId),
+          e.target.dataset.color!,
+          e.target.dataset.size!
+        )
+      }
+    }
+  }
+
   return (
     <motion.main
       variants={container}
@@ -25,17 +50,7 @@ function CartPage() {
       animate="show"
       exit="hidden"
       className="mx-auto mt-4 mb-24 flex w-full flex-col md:w-3/4 xl:w-1/2"
-      onClick={(e) => {
-        if (e.target instanceof HTMLButtonElement) {
-          if (e.target.dataset.action === "removeFromCart") {
-            removeFromCart(
-              Number(e.target.dataset.itemId),
-              e.target.dataset.color!,
-              e.target.dataset.size!
-            )
-          }
-        }
-      }}
+      onClick={handleClick}
     >
       <CartPanel />
       {cart.length ? (

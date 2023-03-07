@@ -34,9 +34,31 @@ function CartProduct({ item }: CartProductProps) {
           {item.size} {item.color}
         </p>
         <div className="flex items-center justify-between">
-          <p>
-            {item.count} x ${item.price}
-          </p>
+          <div className="flex items-center gap-2">
+            <p>
+              {item.count} x ${item.price}
+            </p>
+            <button
+              data-action="addOneToCart"
+              data-item-id={item.id}
+              data-color={item.color}
+              data-size={item.size}
+              className="border border-transparent bg-slate-100 px-1.5 text-zinc-700 transition-colors hover:border-slate-100 hover:bg-zinc-700 hover:text-slate-100"
+            >
+              +
+            </button>
+            {item.count > 1 && (
+              <button
+                data-action="removeOneFromCart"
+                data-item-id={item.id}
+                data-color={item.color}
+                data-size={item.size}
+                className="border border-transparent bg-slate-100 px-1.5 text-zinc-700 transition-colors hover:border-slate-100 hover:bg-zinc-700 hover:text-slate-100"
+              >
+                -
+              </button>
+            )}
+          </div>
           <p className="text-lg font-bold">${item.count * item.price}</p>
         </div>
         <button

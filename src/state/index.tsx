@@ -14,6 +14,14 @@ type Action =
       type: "REMOVE_FROM_CART"
       payload: { itemId: number; color: string; size: string }
     }
+  | {
+      type: "REMOVE_ONE_FROM_CART"
+      payload: { itemId: number; color: string; size: string }
+    }
+  | {
+      type: "ADD_ONE_TO_CART"
+      payload: { itemId: number; color: string; size: string }
+    }
   | { type: "SORT"; payload: { option: string } }
   | { type: "ADD_FILTER"; payload: { filter: string } }
   | { type: "REMOVE_FILTER"; payload: { filter: string } }
@@ -27,6 +35,8 @@ const initialState: State = {
 const ACTIONS = {
   ADD_TO_CART: "ADD_TO_CART",
   REMOVE_FROM_CART: "REMOVE_FROM_CART",
+  REMOVE_ONE_FROM_CART: "REMOVE_ONE_FROM_CART",
+  ADD_ONE_TO_CART: "ADD_ONE_TO_CART",
   SORT: "SORT",
   ADD_FILTER: "ADD_FILTER",
   REMOVE_FILTER: "REMOVE FILTER",
@@ -68,17 +78,52 @@ const reducer = (state: State, action: Action) => {
         }
       }
     case "REMOVE_FROM_CART":
-      console.log(action.payload)
-      const updatedCart = state.cart.filter(
-        (item) =>
-          item.id !== action.payload.itemId ||
-          item.color !== action.payload.color ||
-          item.size !== action.payload.size
-      )
-      console.log(updatedCart)
+      if (action.payload) {
+        const updatedCart = state.cart.filter(
+          (item) =>
+            item.id !== action.payload.itemId ||
+            item.color !== action.payload.color ||
+            item.size !== action.payload.size
+        )
+        return {
+          ...state,
+          cart: updatedCart,
+        }
+      }
+    case "REMOVE_ONE_FROM_CART":
+      const updatedCartRemoved = state.cart.map((item) => {
+        if (
+          item.id === action.payload.itemId &&
+          item.color === action.payload.color &&
+          item.size === action.payload.size &&
+          item.count > 1
+        ) {
+          return {
+            ...item,
+            count: item.count - 1,
+          }
+        } else return item
+      })
       return {
         ...state,
-        cart: updatedCart,
+        cart: updatedCartRemoved,
+      }
+    case "ADD_ONE_TO_CART":
+      const updatedCartAdded = state.cart.map((item) => {
+        if (
+          item.id === action.payload.itemId &&
+          item.color === action.payload.color &&
+          item.size === action.payload.size
+        ) {
+          return {
+            ...item,
+            count: item.count + 1,
+          }
+        } else return item
+      })
+      return {
+        ...state,
+        cart: updatedCartAdded,
       }
     case "SORT":
       const sortedItems = [...state.items].sort((a, b) => {
@@ -117,6 +162,8 @@ type ItemsContextType = {
   filters: string[]
   addToCart: (item: CartItem) => void
   removeFromCart: (itemId: number, color: string, size: string) => void
+  removeOneFromCart: (itemId: number, color: string, size: string) => void
+  addOneToCart: (itemId: number, color: string, size: string) => void
   sortBy: (option: string) => void
   addFilter: (filter: string) => void
   removeFilter: (filter: string) => void
@@ -128,6 +175,8 @@ export const ItemsContext = createContext<ItemsContextType>({
   filters: [],
   addToCart: () => {},
   removeFromCart: () => {},
+  removeOneFromCart: () => {},
+  addOneToCart: () => {},
   sortBy: () => {},
   addFilter: () => {},
   removeFilter: () => {},
@@ -148,6 +197,14 @@ export const ItemsProvider = ({ children }: Props) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: { itemId, color, size } })
   }
 
+  const removeOneFromCart = (itemId: number, color: string, size: string) => {
+    dispatch({ type: "REMOVE_ONE_FROM_CART", payload: { itemId, color, size } })
+  }
+
+  const addOneToCart = (itemId: number, color: string, size: string) => {
+    dispatch({ type: "ADD_ONE_TO_CART", payload: { itemId, color, size } })
+  }
+
   const sortBy = (option: string) => {
     dispatch({ type: "SORT", payload: { option } })
   }
@@ -166,6 +223,8 @@ export const ItemsProvider = ({ children }: Props) => {
     filters: state.filters,
     addToCart,
     removeFromCart,
+    removeOneFromCart,
+    addOneToCart,
     sortBy,
     addFilter,
     removeFilter,
