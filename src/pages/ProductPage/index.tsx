@@ -7,8 +7,11 @@ import ProductImageCarousel from "../../components/ProductImageCarousel"
 
 function ProductPage() {
   const navigate = useNavigate()
+
   const { id } = useParams()
+
   const { items } = useContext(ItemsContext)
+
   const [product, setProduct] = useState(
     items.find((item) => item.id === Number(id))
   )

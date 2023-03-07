@@ -6,6 +6,7 @@ import useMediaQuery from "../hooks/useMediaQuery"
 
 function Searchbar() {
   const [searchBarVisible, setSearchBarVisible] = useState<Boolean>(false)
+
   const isXlScreen = useMediaQuery("(min-width: 1280px)")
 
   const iconAnimation = {

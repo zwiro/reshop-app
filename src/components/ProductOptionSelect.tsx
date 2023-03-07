@@ -19,6 +19,7 @@ function ProductOptionSelect({
       setColor(target.value)
     }
   }
+
   return (
     <select
       onChange={(e) => handleChange(e)}

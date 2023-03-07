@@ -3,10 +3,12 @@ import { ItemsContext } from "../../state"
 
 function CartSummary() {
   const { cart } = useContext(ItemsContext)
+
   const totalAmount = useMemo(
     () => cart.reduce((total, item) => total + item.price * item.count, 0),
     [cart]
   )
+
   return (
     <>
       <p className="ml-auto mt-4 text-lg">

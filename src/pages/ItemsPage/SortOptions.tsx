@@ -4,6 +4,7 @@ import { ItemsContext } from "../../state"
 
 function SortOptions() {
   const { sortBy } = useContext(ItemsContext)
+
   const filters = [
     {
       name: "Price (descending)",
@@ -14,12 +15,14 @@ function SortOptions() {
       value: "priceAsc",
     },
   ]
+
   const SortOptionsAnimation = {
     initial: { height: 0, opacity: 0 },
     animate: { height: 100, opacity: 1 },
     exit: { height: 0, opacity: 0 },
     transition: { opacity: { duration: 0.2 } },
   }
+
   return (
     <motion.div
       {...SortOptionsAnimation}

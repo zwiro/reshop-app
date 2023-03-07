@@ -10,6 +10,7 @@ function Links({ isFooter }: LinksProps) {
     "Terms of Service",
     "Privacy Policy",
   ]
+
   return (
     <ul className={`${isFooter && "flex gap-8 lg:gap-16"} `}>
       {links.map((link, i) => (

@@ -12,6 +12,7 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   const { addToCart } = useContext(ItemsContext)
+
   const [item, setItem] = useState({
     name: product.name,
     category: product.category,

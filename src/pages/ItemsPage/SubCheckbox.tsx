@@ -10,6 +10,7 @@ type SubCheckboxProps = {
 
 function SubCheckbox({ subcategory, setCategory, category }: SubCheckboxProps) {
   const { addFilter, removeFilter } = useContext(ItemsContext)
+
   const handleChange = (e: React.ChangeEvent) => {
     const target = e.target as HTMLInputElement
     setCategory((prevCategory: CategoriesType) => {

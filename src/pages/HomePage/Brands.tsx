@@ -21,6 +21,7 @@ function Brands() {
     <FaForumbee size={40} />,
     <FaMegaport size={40} />,
   ]
+
   return (
     <motion.div
       initial={{ x: "100vw" }}

@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { CartItem } from "../../types"
 
 type CartProductProps = {
   item: CartItem
 }
 
-const element = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { type: "tween" } },
-}
-
 function CartProduct({ item }: CartProductProps) {
+  const element = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { type: "tween" } },
+  }
   return (
     <motion.div
       variants={element}

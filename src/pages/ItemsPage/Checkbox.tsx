@@ -14,8 +14,7 @@ function Checkbox({ value }: CheckboxProps) {
 
   const [category, setCategory] = useState(value)
 
-  const { type } = useParams()
-  const { subtype } = useParams()
+  const { type, subtype } = useParams()
 
   //TODO: Simplify this function
   const checkPage = () => {

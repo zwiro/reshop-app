@@ -10,6 +10,7 @@ type ProductsPanelTypes = {
 
 function ProductsPanel({ length }: ProductsPanelTypes) {
   const [sortingOptionVisible, setSortingOptionsVisible] = useState(false)
+
   const { type } = useParams()
 
   return (

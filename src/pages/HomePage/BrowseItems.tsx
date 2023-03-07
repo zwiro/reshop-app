@@ -4,6 +4,7 @@ import { TbHanger } from "react-icons/tb"
 
 function BrowseItems() {
   const items = ["T-Shirts", "Hoodies", "Coats", "Dresses", "Jackets", "Jeans"]
+
   return (
     <motion.div
       initial={{ x: "-100vw" }}

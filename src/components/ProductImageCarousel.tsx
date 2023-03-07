@@ -11,12 +11,14 @@ function ProductImageCarousel({
   isProductPage,
 }: ProductImageCarouselTypes) {
   const [image, cycleImage] = useCycle(...images.keys())
+
   const imageAnimation = {
     initial: { x: "-100vw" },
     animate: { x: 0, transition: { duration: 0.5 } },
     exit: { scale: 0, x: -100 },
     transition: { type: "tween" },
   }
+
   return (
     <AnimatePresence mode="popLayout" initial={false}>
       <motion.div

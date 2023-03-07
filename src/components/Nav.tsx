@@ -50,16 +50,21 @@ export const categories: CategoriesType[] = [
 
 function Nav({ toggleSidemenu }: NavProps) {
   const { cart, setCart } = useContext(ItemsContext)
-  const isDesktop = useMediaQuery("(min-width: 768px)")
-  const { scrollY }: any = useScroll()
+
   const [scroll, setScroll] = useState(0)
-  useMotionValueEvent(scrollY, "change", (latest: any) => {
-    setScroll(latest)
-  })
+
   const productsCount = useMemo(
     () => cart.reduce((total, item) => total + item.count, 0),
     [cart]
   )
+
+  const isDesktop = useMediaQuery("(min-width: 768px)")
+
+  const { scrollY }: any = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest: any) => {
+    setScroll(latest)
+  })
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cartItems") || "[]")

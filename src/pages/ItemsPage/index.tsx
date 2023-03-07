@@ -7,6 +7,7 @@ import Filters from "./Filters"
 
 function ItemsPage() {
   const { items, filters } = useContext(ItemsContext)
+
   const filteredItems = items.filter((item) =>
     filters.includes(item.subcategory || item.category)
   )
