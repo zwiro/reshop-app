@@ -30,7 +30,7 @@ This is my front-end only shopping app..
 
 ## Screenshots
 
-![App Screenshot](https://i.postimg.cc/bshzb6TR/Screenshot-2023-03-07-at-18-55-38-Reshop-Clothing-Footwear-Store.png)
+![App Screenshot](https://i.postimg.cc/HsJjqR8F/Screenshot-2023-03-07-at-18-55-38-Reshop-Clothing-Footwear-Store.png)
 ![App Screenshot](https://i.postimg.cc/HsfjdzQn/Screenshot-2023-03-07-at-18-55-54-Reshop-Clothing-Footwear-Store.png)
 ![App Screenshot](https://i.postimg.cc/y6pkrsxF/Screenshot-2023-03-07-at-18-56-35-Reshop-Clothing-Footwear-Store.png)
 
