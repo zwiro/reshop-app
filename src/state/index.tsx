@@ -10,7 +10,10 @@ type State = {
 
 type Action =
   | { type: "ADD_TO_CART"; payload: { item: CartItem } }
-  | { type: "REMOVE_FROM_CART"; payload: { itemId: number } }
+  | {
+      type: "REMOVE_FROM_CART"
+      payload: { itemId: number; color: string; size: string }
+    }
   | { type: "SORT"; payload: { option: string } }
   | { type: "ADD_FILTER"; payload: { filter: string } }
   | { type: "REMOVE_FILTER"; payload: { filter: string } }
@@ -65,9 +68,14 @@ const reducer = (state: State, action: Action) => {
         }
       }
     case "REMOVE_FROM_CART":
+      console.log(action.payload)
       const updatedCart = state.cart.filter(
-        (item) => item.id !== action.payload.itemId
+        (item) =>
+          item.id !== action.payload.itemId ||
+          item.color !== action.payload.color ||
+          item.size !== action.payload.size
       )
+      console.log(updatedCart)
       return {
         ...state,
         cart: updatedCart,
@@ -108,7 +116,7 @@ type ItemsContextType = {
   cart: CartItem[]
   filters: string[]
   addToCart: (item: CartItem) => void
-  removeFromCart: (itemId: number) => void
+  removeFromCart: (itemId: number, color: string, size: string) => void
   sortBy: (option: string) => void
   addFilter: (filter: string) => void
   removeFilter: (filter: string) => void
@@ -136,8 +144,8 @@ export const ItemsProvider = ({ children }: Props) => {
     dispatch({ type: "ADD_TO_CART", payload: { item } })
   }
 
-  const removeFromCart = (itemId: number) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: { itemId } })
+  const removeFromCart = (itemId: number, color: string, size: string) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: { itemId, color, size } })
   }
 
   const sortBy = (option: string) => {

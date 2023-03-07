@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { CartItem } from "../../types"
 
 type CartProductProps = {
@@ -39,6 +39,15 @@ function CartProduct({ item }: CartProductProps) {
           </p>
           <p className="text-lg font-bold">${item.count * item.price}</p>
         </div>
+        <button
+          data-item-id={item.id}
+          data-color={item.color}
+          data-size={item.size}
+          data-action="removeFromCart"
+          className="text-sm text-red-300 transition-colors hover:text-red-500"
+        >
+          Remove item
+        </button>
       </div>
     </motion.div>
   )

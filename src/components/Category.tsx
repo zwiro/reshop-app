@@ -19,6 +19,7 @@ function Category({ name, subcategories, path }: CategoriesType) {
     setCategoryExpanded((prevState) => !prevState)
   }
 
+  //TODO: Close category when opening another one
   useEffect(() => {
     const hideCategory = () => {
       setCategoryExpanded(false)
