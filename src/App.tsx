@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="relative flex min-h-screen flex-col p-4 sm:px-8 lg:px-24">
       <ItemsProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/reshop-app">
           <Nav toggleSidemenu={toggleSidemenu} />
           <AnimatePresence>
             {sidemenuVisible && !isDesktop && (
